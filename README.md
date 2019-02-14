@@ -12,6 +12,7 @@ Para la realización del juego se usarán principalmente canvas con algún detal
 
 - Habrá un contador para recrear las puntuaciones.
 - La base de las puntuaciones variará según el tiempo transcurrido además de un bonus al conseguir un elemento bonus.
+- Canción para cada pantalla.
 
 <h2>Estructuras de Datos</h2>
 
@@ -43,6 +44,10 @@ player.size
 player.x
 player.y
 player.context
+update()
+draw()
+checkScreen()
+checkCollisionObstacle()
 
 - Documento obstacles.js: Documento que recoge la clase obstacles con sus valores.
 
@@ -50,11 +55,16 @@ obstacle.size
 obstacle.x
 obstacle.y
 obstacle.context
+update()
+draw()
+
 
 - Documento score.js: Documento con la clase score que recoge la logística de la puntuación.
 
 score.currentScore
 score.interval
+clearInterval()
+updateScore()
 
 - Documento map.js: Documento que recoge la clase base con sus valores.
 
@@ -69,6 +79,7 @@ bonus.size
 bonus.x
 bonus.y
 bonus.context
+update()
 
 <h2>States y States Transitions</h2>
 Definicion del las transiciones del juego y del main.
