@@ -13,35 +13,18 @@ body {
 }
 
 body {
-  color: #111;
+  width: 288px;
+  height: 511px;
   font-family: Helvetica, Arial, sans-serif;
   font-size: 16px;
   line-height: 147%;
 }
 
-#site-header {
-  padding: 30px 0;
-  color: white;
-  background: #111;
-}
-
-#site-footer {
-  color: white;
-  padding: 60px 0;
-  background: #111;
-}
-
-#site-main {
-  margin-bottom: 60px;
-}
-
 .container {
-  margin: 0 20px;
-}
-
-.section {
-  margin-bottom: 20px;
-  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 @media (min-width: 768px) {
@@ -51,22 +34,39 @@ body {
   }
 }
 
-.button {
+section {
   width: 100%;
-  background-color: blue;
-  color: #fff;
-  border: 1px solid #fff;
+  height: 100vh;
 }
 
-.button-alt {
-  color: blue;
-  background-color: #fff;
+.splash-section {
+  background-image: url("./sprites/background-day-start.png");
+  background-repeat: no-repeat;
 }
 
-section.testimonials {
-  // ...
+.buttons-start {
+  position: relative;
+  top: 130px;
 }
 
-section.testimonials .button {
-  margin-bottom: 10px;
+.start-button {
+  width: 30%;
+  margin-bottom: 30px;
+  justify-self: center;
+}
+
+.leaderboards-button {
+  width: 50%;
+}
+
+button {
+  border-radius: 5px;
+  background: linear-gradient(to bottom right, #ff9900 39%, #800000 100%);
+  border: 1px solid black;
+  padding: 4px;
+}
+
+.game-section {
+  background-image: url("./sprites/background-day.png");
+  background-repeat: no-repeat;
 }

@@ -37,6 +37,11 @@ new Base
 new Player
 new Obstacle
 new Bonus
+clearCanvas()
+drawCanvas()
+checkCollisions()
+gameOver()
+loop(new Obstacle, requestAnimationFrame)
 
 - Documento player.js: Documento que recoge la clase player con sus valores.
 
@@ -108,6 +113,8 @@ Definicion de las tareas por orden de prioridad
 - Crear la función que crea la pantalla de juego.
 
 - Crear la función que crea la pantalla de Game Over.
+
+- Crear la clase game.
 
 - Crear la clase base.
 
