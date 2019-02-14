@@ -6,14 +6,14 @@ class Player {
     this.x = 20 + this.size / 2;
     this.y = this.canvas.height / 2;
     this.context = this.canvas.getContext("2d");
-    this.direction = 2;
+    this.direction = 4;
   }
   update() {
     this.y = this.y + this.direction;
   }
 
   jump() {
-    this.y -= 50;
+    this.y -= 90;
   }
 
   draw() {

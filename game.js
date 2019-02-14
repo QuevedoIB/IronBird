@@ -5,12 +5,20 @@ class Game {
     this.context = canvas.getContext("2d");
     this.player;
     this.obstacles = [];
+    this.interval;
     this.bonus;
   }
 
   startLoop() {
     this.player = new Player(this.canvas);
     this.base = new Base(this.canvas);
+
+    const generateObstacle = () => {
+      this.obstacles.push(new Obstacle(this.canvas));
+    };
+
+    this.interval = setInterval(generateObstacle, 1500);
+
     const loop = () => {
       this.checkPositions();
       this.updateCanvas();
@@ -24,11 +32,13 @@ class Game {
 
   updateCanvas() {
     this.player.update();
+    this.obstacles.map(e => e.update());
   }
 
   drawCanvas() {
     this.player.draw();
     this.base.draw();
+    this.obstacles.map(e => e.draw());
   }
 
   clearCanvas() {
