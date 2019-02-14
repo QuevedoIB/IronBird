@@ -32,6 +32,7 @@ const main = () => {
     </section>
     `);
 
+    const section = document.querySelector("section");
     const canvasElement = document.querySelector("canvas");
     const width = document.querySelector(".game-section").offsetWidth;
     const height = document.querySelector(".game-section").offsetHeight;
@@ -40,13 +41,14 @@ const main = () => {
     canvasElement.setAttribute("height", height);
 
     const startGame = new Game(canvasElement);
+    startGame.gameOverCallback(buildGameOverScreen);
     startGame.startLoop();
 
-    const setPlayerDirection = event => {
-      game.player.setDirection(1);
+    const setPlayerDirection = () => {
+      startGame.player.jump();
     };
 
-    document.addEventListener("click", setPlayerDirection);
+    section.addEventListener("click", setPlayerDirection);
   };
 
   const buildGameOverScreen = () => {
