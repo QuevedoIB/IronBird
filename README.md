@@ -29,40 +29,40 @@ La estructura será:
 States y States Transitions
 Definicion del las transiciones del juego y del main.
 
-splashScreen: Un botón vincula splashScreen y gameScreen, un segundo botón manipula el DOM para mostrar una tabla de puntuaciones.
+- splashScreen: Un botón vincula splashScreen y gameScreen, un segundo botón manipula el DOM para mostrar una tabla de puntuaciones.
 
-gameScreen: Al cumplirse determinadas condiciones se activa un vinculo con gameOverScreen.
+- gameScreen: Al cumplirse determinadas condiciones se activa un vinculo con gameOverScreen.
 
-gameOverScreen: Un botón vincula gameOverScreen con gameScreen.
+- gameOverScreen: Un botón vincula gameOverScreen con gameScreen.
 
 Funciones de transición.
 
-buildSplashScreen():
+- buildSplashScreen():
 
-buildGameScreen():
+- buildGameScreen():
 
-buildGameOverScreen():
+- buildGameOverScreen():
 
 Task
 Definicion de las tareas por orden de prioridad
 
-Crear la función que inicializa el juego en pantalla.
+- Crear la función que inicializa el juego en pantalla.
 
-Crear la función que crea la pantalla de inicio.
+- Crear la función que crea la pantalla de inicio.
 
-Crear la función que crea la pantalla de juego.
+- Crear la función que crea la pantalla de juego.
 
-Crear la función que crea la pantalla de Game Over.
+- Crear la función que crea la pantalla de Game Over.
 
-Crear la clase base.
+- Crear la clase base.
 
-Crear la clase player.
+- Crear la clase player.
 
-Crear la clase obstacle.
+- Crear la clase obstacle.
 
-Crear la clase score.
+- Crear la clase score.
 
-Crear la clase bonus.
+- Crear la clase bonus.
 
 Links
 Trello
