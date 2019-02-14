@@ -6,6 +6,7 @@ class Game {
     this.player;
     this.obstacles = [];
     this.interval;
+    this.animation;
     this.bonus;
   }
 
@@ -18,6 +19,10 @@ class Game {
     };
 
     this.interval = setInterval(generateObstacle, 1500);
+
+    const updateAnimationFrame = () => this.player.frameUpdate(this.player.frameCount);
+
+    this.animation = setInterval(updateAnimationFrame, 100);
 
     const loop = () => {
       this.checkPositions();
