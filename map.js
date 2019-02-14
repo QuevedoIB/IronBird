@@ -10,6 +10,6 @@ class Base {
 
   draw() {
     this.context.fillStyle = "red";
-    this.context.fillRect(this.x - this.size / 2, this.y - this.size / 2, this.size, this.size);
+    this.context.fillRect(0, this.y - this.size / 2, this.size, this.size);
   }
 }
