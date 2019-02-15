@@ -9,7 +9,6 @@ class Game {
     this.interval;
     this.over = false;
     this.animation;
-    this.bonus;
   }
 
   startLoop() {
@@ -17,8 +16,15 @@ class Game {
     this.base = new Base(this.canvas);
 
     const generate = () => {
+      const random = Math.floor(Math.random() * 2);
+
       this.obstacles.push(new Obstacle(this.canvas));
-      this.bonus.push(new Bonus(this.canvas));
+
+      if (random === 0) {
+        this.bonus.push(new Bonus(this.canvas, 50));
+      } else {
+        this.bonus.push(new Bonus(this.canvas, 300));
+      }
     };
 
     this.interval = setInterval(generate, 1500);

@@ -1,12 +1,12 @@
 "use strict";
 class Bonus {
-  constructor(canvas) {
+  constructor(canvas, y) {
     this.canvas = canvas;
     this.context = this.canvas.getContext("2d");
-    this.x = this.canvas.width;
-    this.y = this.canvas.height + 100;
+    this.x = this.canvas.width + this.canvas.width / 2;
+    this.y = y;
     this.size = 30;
-    this.direction;
+    this.direction = 4;
   }
 
   update() {
@@ -15,6 +15,6 @@ class Bonus {
 
   draw() {
     this.context.fillStyle = "blue";
-    this.context.fillRect(this.x, 10, this.size, this.size);
+    this.context.fillRect(this.x, this.y, this.size, this.size);
   }
 }
