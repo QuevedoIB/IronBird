@@ -92,6 +92,13 @@ const main = () => {
     };
 
     section.addEventListener("click", setPlayerDirection);
+    window.addEventListener("keydown", function(e) {
+      const key = e.keyCode;
+      if (key === 32) {
+        // spacebar code
+        return startGame.pause === true ? (startGame.pause = false) : (startGame.pause = true);
+      }
+    });
   };
 
   buildSplash();

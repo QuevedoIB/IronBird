@@ -6,7 +6,7 @@ class Player {
     this.x = 20 + this.size / 2;
     this.y = this.canvas.height / 2;
     this.context = this.canvas.getContext("2d");
-    this.direction = 4;
+    this.direction = 3.5;
     this.src = "./sprites/bluemidglasses.png";
     this.frameCount = "mid-to-top";
     this.jumpSpeed = 35;

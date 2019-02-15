@@ -10,6 +10,7 @@ class Game {
     this.bonusStatus;
     this.over = false;
     this.animation;
+    this.pause = false;
   }
 
   startLoop() {
@@ -17,14 +18,16 @@ class Game {
     this.base = new Base(this.canvas);
 
     const generate = () => {
-      const random = Math.floor(Math.random() * 2);
+      if (!this.pause) {
+        const random = Math.floor(Math.random() * 2);
 
-      this.obstacles.push(new Obstacle(this.canvas));
+        this.obstacles.push(new Obstacle(this.canvas));
 
-      if (random === 0) {
-        this.bonus.push(new Bonus(this.canvas, 50));
-      } else {
-        this.bonus.push(new Bonus(this.canvas, 300));
+        if (random === 0) {
+          this.bonus.push(new Bonus(this.canvas, 50));
+        } else {
+          this.bonus.push(new Bonus(this.canvas, 300));
+        }
       }
     };
 
@@ -35,10 +38,12 @@ class Game {
     this.animation = setInterval(updateAnimationFrame, 100);
 
     const loop = () => {
-      this.checkPositions();
-      this.updateCanvas();
-      this.clearCanvas();
-      this.drawCanvas();
+      if (!this.pause) {
+        this.checkPositions();
+        this.updateCanvas();
+        this.clearCanvas();
+        this.drawCanvas();
+      }
 
       if (this.over === false) {
         window.requestAnimationFrame(loop);
