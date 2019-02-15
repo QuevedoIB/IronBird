@@ -67,6 +67,19 @@ class Game {
 
   checkPositions() {
     this.player.checkScreen();
+
+    if (
+      this.bonus.some(e => e.x < this.player.x + this.player.size / 2 && e.y > this.player.y - this.player.size / 2)
+    ) {
+      return true;
+    }
+
+    if (
+      this.bonus.some(e => e.x < this.player.x + this.player.size / 2 && e.y > this.player.y - this.player.size / 2)
+    ) {
+      return true;
+    }
+
     if (this.player.y + this.player.size / 2 > this.base.y - this.base.size / 2) {
       this.over = true;
       this.onGameOver();
@@ -95,5 +108,13 @@ class Game {
 
   gameOverCallback(callback) {
     this.onGameOver = callback;
+  }
+
+  bonusIncrease() {
+    if (this.checkPositions()) {
+      return 50;
+    } else {
+      return 0;
+    }
   }
 }

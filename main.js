@@ -53,6 +53,7 @@ const main = () => {
 
     const score = new Score();
     const timer = () => {
+      score.currentTime += startGame.bonusIncrease();
       scoreBox.innerText = `Score: ${score.currentTime}`;
     };
     score.startClick();
