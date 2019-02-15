@@ -22,6 +22,7 @@ const main = () => {
 
     const buttonLeaderboards = document.getElementsByClassName("leaderboards-button");
 
+    //cambiar al final
     buttonLeaderboards[0].addEventListener("click", buildGameOverScreen);
   };
 

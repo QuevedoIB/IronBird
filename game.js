@@ -48,11 +48,30 @@ class Game {
 
   clearCanvas() {
     this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    this.obstacles = this.obstacles.filter(e => e.x > -e.size / 10);
   }
 
   checkPositions() {
     this.player.checkScreen();
     if (this.player.y + this.player.size / 2 > this.base.y - this.base.size / 2) {
+      this.onGameOver();
+    }
+    if (
+      this.obstacles.some(
+        e => e.x < this.player.x + this.player.size / 2 && e.y > this.player.y - this.player.size / 2
+        // &&
+        // e.x + this.size / 10 > this.player.x - this.player.size / 2
+      )
+    ) {
+      this.onGameOver();
+    }
+    if (
+      this.obstacles.some(
+        e => e.x < this.player.x + this.player.size / 2 && e.y + e.spaceBetween < this.player.y + this.player.size / 2
+        // &&
+        // e.x + this.size / 10 > this.player.x - this.player.size / 2
+      )
+    ) {
       this.onGameOver();
     }
   }
