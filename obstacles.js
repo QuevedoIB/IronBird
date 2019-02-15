@@ -9,14 +9,19 @@ class Obstacle {
     this.direction = 4;
     this.spaceBetween = 200;
     this.randomNumber = Math.floor(Math.random() * (this.canvas.height - 288));
+    this.src = "./sprites/pipe-green.png";
   }
   update() {
     this.x -= this.direction;
   }
   draw() {
     this.y = this.randomNumber;
-    this.context.fillStyle = "red";
-    this.context.fillRect(this.x, 0, this.size / 10, this.y);
-    this.context.fillRect(this.x, this.y + this.spaceBetween, this.size / 10, this.canvas.height);
+
+    const img = new Image();
+    img.onload = function() {};
+    img.src = this.src;
+
+    this.context.drawImage(img, this.x, 0, this.size / 10, this.y);
+    this.context.drawImage(img, this.x, this.y + this.spaceBetween, this.size / 10, this.canvas.height);
   }
 }

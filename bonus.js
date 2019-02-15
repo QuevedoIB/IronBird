@@ -7,6 +7,7 @@ class Bonus {
     this.y = y;
     this.size = 30;
     this.direction = 4;
+    this.src = "./sprites/coffesprite.png";
   }
 
   update() {
@@ -14,7 +15,10 @@ class Bonus {
   }
 
   draw() {
-    this.context.fillStyle = "blue";
-    this.context.fillRect(this.x, this.y, this.size, this.size);
+    const img = new Image();
+    img.onload = function() {};
+    img.src = this.src;
+
+    this.context.drawImage(img, this.x, this.y, this.size, this.size);
   }
 }
