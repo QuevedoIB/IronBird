@@ -8,7 +8,7 @@ class Player {
     this.context = this.canvas.getContext("2d");
     this.direction = 4;
     this.src = "./sprites/bluemidglasses.png";
-    this.frameCount = "mid-top0";
+    this.frameCount = "mid-to-top";
   }
   update() {
     this.y = this.y + this.direction;
@@ -27,17 +27,17 @@ class Player {
   }
 
   frameUpdate(value) {
-    if (value === "mid-top0") {
-      this.frameCount = "mid-top1";
+    if (value === "mid-to-top") {
+      this.frameCount = "top-to-mid";
       return (this.src = "./sprites/blueupglasses.png");
-    } else if (value === "mid-top1") {
-      this.frameCount = "mid-bot0";
+    } else if (value === "top-to-mid") {
+      this.frameCount = "mid-to-bot";
       return (this.src = "./sprites/bluemidglasses.png");
-    } else if (value === "mid-bot0") {
-      this.frameCount = "mid-bot1";
+    } else if (value === "mid-to-bot") {
+      this.frameCount = "bot-to-mid";
       return (this.src = "./sprites/bluedownglasses.png");
-    } else if (value === "mid-bot1") {
-      this.frameCount = "mid-top0";
+    } else if (value === "bot-to-mid") {
+      this.frameCount = "mid-to-top";
       return (this.src = "./sprites/bluemidglasses.png");
     }
   }

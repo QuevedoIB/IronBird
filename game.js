@@ -7,6 +7,7 @@ class Game {
     this.obstacles = [];
     this.bonus = [];
     this.interval;
+    this.bonusStatus;
     this.over = false;
     this.animation;
   }
@@ -66,27 +67,27 @@ class Game {
   }
 
   checkPositions() {
+    const playerXPlus = this.player.x + this.player.size / 2;
+    const playerYPlus = this.player.y + this.player.size / 2;
+    const playerYSubstract = this.player.y - this.player.size / 2;
+
     this.player.checkScreen();
 
-    if (
-      this.bonus.some(e => e.x < this.player.x + this.player.size / 2 && e.y > this.player.y - this.player.size / 2)
-    ) {
-      return true;
+    if (this.bonus.some(e => e.x < playerXPlus && e.y < playerYPlus && playerYSubstract < e.y)) {
+      this.bonusStatus = true;
     }
+    // && playerYSubstr < e.y
+    // if (this.bonus.some(e => e.x < playerXPlus && e.y > playerYSubstract)) {
+    //   return true;
+    // }
 
-    if (
-      this.bonus.some(e => e.x < this.player.x + this.player.size / 2 && e.y > this.player.y - this.player.size / 2)
-    ) {
-      return true;
-    }
-
-    if (this.player.y + this.player.size / 2 > this.base.y - this.base.size / 2) {
+    if (playerYPlus > this.base.y - this.base.size / 2) {
       this.over = true;
       this.onGameOver();
     }
     if (
       this.obstacles.some(
-        e => e.x < this.player.x + this.player.size / 2 && e.y > this.player.y - this.player.size / 2
+        e => e.x < playerXPlus && e.y > playerYSubstract
         // &&
         // e.x + this.size / 10 > this.player.x - this.player.size / 2
       )
@@ -96,7 +97,7 @@ class Game {
     }
     if (
       this.obstacles.some(
-        e => e.x < this.player.x + this.player.size / 2 && e.y + e.spaceBetween < this.player.y + this.player.size / 2
+        e => e.x < playerXPlus && e.y + e.spaceBetween < playerYPlus
         // &&
         // e.x + this.size / 10 > this.player.x - this.player.size / 2
       )
@@ -111,7 +112,9 @@ class Game {
   }
 
   bonusIncrease() {
-    if (this.checkPositions()) {
+    if (this.bonusStatus) {
+      console.log("hola");
+      this.bonusStatus = false;
       return 50;
     } else {
       return 0;
