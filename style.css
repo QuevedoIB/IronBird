@@ -1,3 +1,8 @@
+@font-face {
+  font-family: Nokia;
+  src: url("./fonts/nokiafc22.ttf");
+}
+
 html {
   box-sizing: border-box;
 }
@@ -72,8 +77,8 @@ button {
 }
 
 #timer {
+  font-family: Nokia;
   position: absolute;
-  margin-top: 15px;
-  margin-left: 15px;
-  background-color: red;
+  margin-top: 10px;
+  margin-left: 10px;
 }

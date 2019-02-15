@@ -44,10 +44,19 @@ const main = () => {
   const buildGameScreen = () => {
     buildDom(`
     <section class="game-section">
-    <div id="timer">Score</div>  
+    <div id="timer"></div>  
     <canvas></canvas>
     </section>
     `);
+
+    const scoreBox = document.getElementById("timer");
+
+    const score = new Score();
+    const timer = () => {
+      scoreBox.innerText = `Score: ${score.currentTime}`;
+    };
+    score.startClick();
+    score.updateDom(timer);
 
     const section = document.querySelector("section");
     const canvasElement = document.querySelector("canvas");

@@ -1,7 +1,19 @@
 "use strict";
 class Score {
   constructor(canvas) {
-    this.canvas = canvas;
-    this.context = this.canvas.getContext("2d");
+    this.currentTime = 0;
+    this.intervalId = null;
+  }
+  startClick() {
+    let addTime = () => {
+      this.currentTime++;
+      this.update();
+    };
+
+    this.intervalId = setInterval(addTime, 500);
+  }
+
+  updateDom(callback) {
+    this.update = callback;
   }
 }
