@@ -5,9 +5,9 @@ class Bonus {
     this.context = this.canvas.getContext("2d");
     this.x = this.canvas.width + this.canvas.width / 2;
     this.y = y;
-    this.size = 30;
+    this.size = 50;
     this.direction = 4;
-    this.src = "./sprites/coffesprite.png";
+    this.src = "./sprites/coffeSpritebig.png";
   }
 
   update() {

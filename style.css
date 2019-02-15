@@ -3,6 +3,11 @@
   src: url("./fonts/nokiafc22.ttf");
 }
 
+@font-face {
+  font-family: Pixelade;
+  src: url("./fonts/PIXELADE.TTF");
+}
+
 html {
   box-sizing: border-box;
 }
@@ -49,19 +54,9 @@ section {
   background-repeat: no-repeat;
 }
 
-.buttons-start {
-  position: relative;
-  top: 130px;
-}
-
 .start-button {
-  width: 30%;
   margin-bottom: 30px;
   justify-self: center;
-}
-
-.leaderboards-button {
-  width: 50%;
 }
 
 button {
@@ -81,4 +76,24 @@ button {
   position: absolute;
   margin-top: 10px;
   margin-left: 10px;
+}
+
+.instructions {
+  position: fixed;
+  bottom: 105px;
+  /* align-self: flex-end; */
+  font-size: 16px;
+}
+
+h4 {
+  margin: 0;
+  font-family: Nokia;
+  text-decoration: underline;
+}
+
+.instruction-list {
+  font-family: Pixelade;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 }

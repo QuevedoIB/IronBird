@@ -111,7 +111,6 @@ class Game {
 
   bonusIncrease() {
     if (this.bonusStatus) {
-      console.log("hola");
       this.bonusStatus = false;
       return 50;
     } else {

@@ -8,11 +8,21 @@ const main = () => {
 
   const buildSplash = () => {
     buildDom(`
-    <section class="splash-section">
-      <article class="buttons-start container">
+    <section class="container splash-section">
+      <audio autoplay loop  id="playAudio">
+      <source src="music-project-1/intromusic.mp3">
+      </audio>
+      <article class="container buttons-start">
         <button class="start-button">START</button>
         <button class="leaderboards-button">LEADERBOARDS</button>
       </article>
+      <article class="instructions">
+      <h4 class="instructions-title">Instructions</h4>
+        <ul class="instruction-list container">
+        <li> Drink Coffee </li>
+        <li> Dodge obstacles </li>
+        <li> Stay focused </li>
+        </article>
     </section>
     `);
 
@@ -29,6 +39,9 @@ const main = () => {
   const buildGameOverScreen = () => {
     buildDom(`
     <section class="game-over-section>
+      <audio autoplay loop  id="playAudio">
+      <source src="music-project-1/Undertale - Megalovania.mp3" allow="autoplay">
+      </audio>
       <h1 class="title">Game Over</h1>
       <div class="container">
         <p>Score</p>
@@ -44,6 +57,9 @@ const main = () => {
   const buildGameScreen = () => {
     buildDom(`
     <section class="game-section">
+      <audio autoplay loop  id="playAudio">
+      <source src="music-project-1/Undertale - Megalovania.mp3" allow="autoplay">
+      </audio>
     <div id="timer"></div>  
     <canvas></canvas>
     </section>

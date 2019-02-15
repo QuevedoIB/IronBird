@@ -9,13 +9,18 @@ class Player {
     this.direction = 4;
     this.src = "./sprites/bluemidglasses.png";
     this.frameCount = "mid-to-top";
+    this.jumpSpeed = 35;
+    this.vertSpeed = 0;
   }
   update() {
-    this.y = this.y + this.direction;
+    // this.y = this.y + this.direction;
+    this.y -= this.vertSpeed * 0.2;
+    this.vertSpeed -= this.direction * 0.5;
   }
 
   jump() {
-    this.y -= 90;
+    this.vertSpeed = this.jumpSpeed;
+    //añadir propiedad velocidad , inicialmente restar un valor pequeño a y y progresivamente seguir restandole hasta cierta cifra
   }
 
   draw() {
