@@ -6,6 +6,7 @@ class Game {
     this.player;
     this.obstacles = [];
     this.interval;
+    this.over = false;
     this.animation;
     this.bonus;
   }
@@ -30,7 +31,9 @@ class Game {
       this.clearCanvas();
       this.drawCanvas();
 
-      window.requestAnimationFrame(loop);
+      if (this.over === false) {
+        window.requestAnimationFrame(loop);
+      }
     };
     window.requestAnimationFrame(loop);
   }
@@ -54,6 +57,7 @@ class Game {
   checkPositions() {
     this.player.checkScreen();
     if (this.player.y + this.player.size / 2 > this.base.y - this.base.size / 2) {
+      this.over = true;
       this.onGameOver();
     }
     if (
@@ -63,6 +67,7 @@ class Game {
         // e.x + this.size / 10 > this.player.x - this.player.size / 2
       )
     ) {
+      this.over = true;
       this.onGameOver();
     }
     if (
@@ -72,6 +77,7 @@ class Game {
         // e.x + this.size / 10 > this.player.x - this.player.size / 2
       )
     ) {
+      this.over = true;
       this.onGameOver();
     }
   }

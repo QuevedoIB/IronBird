@@ -27,7 +27,6 @@ class Player {
   }
 
   frameUpdate(value) {
-    console.log(this.frameCount);
     if (value === "mid-top0") {
       this.frameCount = "mid-top1";
       return (this.src = "./sprites/blueupglasses.png");

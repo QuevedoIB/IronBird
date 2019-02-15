@@ -26,10 +26,26 @@ const main = () => {
     buttonLeaderboards[0].addEventListener("click", buildGameOverScreen);
   };
 
+  const buildGameOverScreen = () => {
+    buildDom(`
+    <section class="game-over-section>
+      <h1 class="title">Game Over</h1>
+      <div class="container">
+        <p>Score</p>
+        <button class="start-button">Retry</button>
+      </div>
+    </section>
+    `);
+
+    const retryButton = document.querySelector("button");
+    retryButton.addEventListener("click", buildGameScreen);
+  };
+
   const buildGameScreen = () => {
     buildDom(`
     <section class="game-section">
-      <canvas></canvas>
+    <div id="timer">Score</div>  
+    <canvas></canvas>
     </section>
     `);
 
@@ -50,21 +66,6 @@ const main = () => {
     };
 
     section.addEventListener("click", setPlayerDirection);
-  };
-
-  const buildGameOverScreen = () => {
-    buildDom(`
-    <section class="game-over-section>
-      <h1 class="title">Game Over</h1>
-      <div class="container">
-        <p>Score</p>
-        <button class="start-button">Retry</button>
-      </div>
-    </section>
-    `);
-
-    const retryButton = document.querySelector("button");
-    retryButton.addEventListener("click", buildGameScreen);
   };
 
   buildSplash();

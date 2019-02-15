@@ -70,3 +70,10 @@ button {
   background-image: url("./sprites/background-day.png");
   background-repeat: no-repeat;
 }
+
+#timer {
+  position: absolute;
+  margin-top: 15px;
+  margin-left: 15px;
+  background-color: red;
+}
