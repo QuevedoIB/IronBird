@@ -11,11 +11,18 @@ class Player {
     this.frameCount = "mid-to-top";
     this.jumpSpeed = 35;
     this.vertSpeed = 0;
+    this.night = false;
   }
   update() {
-    // this.y = this.y + this.direction;
-    this.y -= this.vertSpeed * 0.2;
-    this.vertSpeed -= this.direction * 0.5;
+    if (!this.night) {
+      this.direction = 3.5;
+      this.y -= this.vertSpeed * 0.2;
+      this.vertSpeed -= this.direction * 0.5;
+    } else {
+      this.direction = -3.5;
+      this.y += this.vertSpeed * 0.2;
+      this.vertSpeed += this.direction * 0.5;
+    }
   }
 
   jump() {

@@ -73,42 +73,39 @@ class Game {
   }
 
   checkPositions() {
-    const playerXPlus = this.player.x + this.player.size / 2;
-    const playerYPlus = this.player.y + this.player.size / 2;
-    const playerYSubstract = this.player.y - this.player.size / 2;
-
-    this.player.checkScreen();
-
-    if (this.bonus.some(e => e.x < playerXPlus && e.y < playerYPlus && playerYSubstract < e.y)) {
-      this.bonusStatus = true;
-      this.bonus = this.bonus.filter(e => e.x > playerXPlus && e.y > playerYPlus && playerYSubstract > e.y);
-    }
-    // && playerYSubstr < e.y
-
-    if (playerYPlus > this.base.y - this.base.size / 2) {
-      this.over = true;
-      this.onGameOver();
-    }
-    if (
-      this.obstacles.some(
-        e => e.x < playerXPlus && e.y > playerYSubstract
-        // &&
-        // e.x + this.size / 10 > this.player.x - this.player.size / 2
-      )
-    ) {
-      this.over = true;
-      this.onGameOver();
-    }
-    if (
-      this.obstacles.some(
-        e => e.x < playerXPlus && e.y + e.spaceBetween < playerYPlus
-        // &&
-        // e.x + this.size / 10 > this.player.x - this.player.size / 2
-      )
-    ) {
-      this.over = true;
-      this.onGameOver();
-    }
+    // const playerXPlus = this.player.x + this.player.size / 2;
+    // const playerYPlus = this.player.y + this.player.size / 2;
+    // const playerYSubstract = this.player.y - this.player.size / 2;
+    // this.player.checkScreen();
+    // if (this.bonus.some(e => e.x < playerXPlus && e.y < playerYPlus && playerYSubstract < e.y)) {
+    //   this.bonusStatus = true;
+    //   this.bonus = this.bonus.filter(e => e.x > playerXPlus && e.y > playerYPlus && playerYSubstract > e.y);
+    // }
+    // // && playerYSubstr < e.y
+    // if (playerYPlus > this.base.y - this.base.size / 2) {
+    //   this.over = true;
+    //   this.onGameOver();
+    // }
+    // if (
+    //   this.obstacles.some(
+    //     e => e.x < playerXPlus && e.y > playerYSubstract
+    //     // &&
+    //     // e.x + this.size / 10 > this.player.x - this.player.size / 2
+    //   )
+    // ) {
+    //   this.over = true;
+    //   this.onGameOver();
+    // }
+    // if (
+    //   this.obstacles.some(
+    //     e => e.x < playerXPlus && e.y + e.spaceBetween < playerYPlus
+    //     // &&
+    //     // e.x + this.size / 10 > this.player.x - this.player.size / 2
+    //   )
+    // ) {
+    //   this.over = true;
+    //   this.onGameOver();
+    // }
   }
 
   gameOverCallback(callback) {

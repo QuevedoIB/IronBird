@@ -9,7 +9,8 @@ class Obstacle {
     this.direction = 4;
     this.spaceBetween = 200;
     this.randomNumber = Math.floor(Math.random() * (this.canvas.height - 288));
-    this.src = "./sprites/pipe-green.png";
+    this.srcBot = "./sprites/pipe-green.png";
+    this.srcTop = "./sprites/top-green-pipe.png";
   }
   update() {
     this.x -= this.direction;
@@ -17,11 +18,15 @@ class Obstacle {
   draw() {
     this.y = this.randomNumber;
 
-    const img = new Image();
-    img.onload = function() {};
-    img.src = this.src;
+    const imgBot = new Image();
+    imgBot.onload = function() {};
+    imgBot.src = this.srcBot;
 
-    this.context.drawImage(img, this.x, 0, this.size / 10, this.y);
-    this.context.drawImage(img, this.x, this.y + this.spaceBetween, this.size / 10, this.canvas.height);
+    const imgTop = new Image();
+    imgTop.onload = function() {};
+    imgTop.src = this.srcTop;
+
+    this.context.drawImage(imgTop, this.x, 0, this.size / 10, this.y);
+    this.context.drawImage(imgBot, this.x, this.y + this.spaceBetween, this.size / 10, this.canvas.height);
   }
 }

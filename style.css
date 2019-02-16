@@ -66,8 +66,23 @@ button {
   padding: 4px;
 }
 
-.game-section {
-  background-image: url("./sprites/background-day.png");
+/* .game-section {
+  background-image: url("./sprites/background-night.png");
+  background-repeat: no-repeat;
+} */
+
+#day-background {
+  position: absolute;
+  z-index: -1;
+}
+
+#night-background {
+  position: absolute;
+  z-index: -1;
+}
+
+.night-game-section {
+  background-image: url("./sprites/background-night.png");
   background-repeat: no-repeat;
 }
 

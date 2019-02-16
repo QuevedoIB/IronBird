@@ -60,6 +60,8 @@ const main = () => {
       <audio autoplay loop  id="playAudio">
       <source src="music-project-1/Undertale - Megalovania.mp3" allow="autoplay">
       </audio>
+      <img src="./sprites/background-night.png" id="night-background">
+      <img src="./sprites/background-day.png" id="day-background"> 
     <div id="timer"></div>  
     <div id="pause-text" class="container hide"><h1 id="pause-title">Paused</h1>
     <p>Press SPACEBAR to resume</p>
@@ -80,6 +82,7 @@ const main = () => {
     score.updateDom(timer);
 
     const section = document.querySelector("section");
+
     const canvasElement = document.querySelector("canvas");
     const width = document.querySelector(".game-section").offsetWidth;
     const height = document.querySelector(".game-section").offsetHeight;
@@ -94,6 +97,45 @@ const main = () => {
     const setPlayerDirection = () => {
       startGame.player.jump();
     };
+
+    const imgDay = document.getElementById("day-background");
+    let opacityInterval;
+    let nightCount = 0;
+
+    imgDay.style.opacity = 1;
+
+    function opacityChange() {
+      opacityInterval = setInterval(animationOpacity, 5000);
+    }
+
+    function animationOpacity() {
+      if (imgDay.style.opacity == 0 && nightCount < 4) {
+        console.log("2");
+        startGame.player.night = true;
+        return nightCount++;
+      }
+
+      if (imgDay.style.opacity >= 0 && nightCount === 0) {
+        console.log("1");
+        return (imgDay.style.opacity -= 0.25);
+      }
+
+      if (nightCount === 4 && imgDay.style.opacity <= 1) {
+        console.log("3", imgDay.style.opacity);
+        imgDay.style.opacity += 0.25; //falla la suma
+        console.log(imgDay.style.opacity);
+        return;
+      }
+
+      if (nigthCount === 4 && imgDay.style.opacity === 1) {
+        console.log("4");
+        startGame.player.night = false;
+        return (nightCount = 0);
+      }
+    }
+
+    const animationTimer = setInterval(opacityChange, 10000);
+    window.onload = animationTimer;
 
     section.addEventListener("click", setPlayerDirection);
     window.addEventListener("keydown", function(e) {
