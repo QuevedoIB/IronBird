@@ -59,7 +59,6 @@ class Player {
       this.y = this.size / 2;
     }
   }
-  checkCollision() {}
 }
 
 // draw() {

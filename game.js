@@ -77,14 +77,19 @@ class Game {
     const playerXPlus = this.player.x + this.player.size / 2;
     const playerYPlus = this.player.y + this.player.size / 2;
     const playerYSubstract = this.player.y - this.player.size / 2;
+    const playerXSubstract = this.player.x - this.player.size / 2;
     this.player.checkScreen();
-    if (this.bonus.some(e => e.x < playerXPlus && e.y < playerYPlus && playerYSubstract < e.y)) {
-      this.bonusStatus = true;
-      this.bonus = this.bonus.filter(e => e.x > playerXPlus && e.y > playerYPlus && playerYSubstract > e.y);
-    }
+    // if (this.bonus.some(e => e.x < playerXPlus && e.y < playerYPlus && playerYSubstract < e.y)) {
+    //   this.bonusStatus = true;
+    //   this.bonus = this.bonus.filter(e => e.x > playerXPlus && e.y > playerYPlus && playerYSubstract > e.y);
+    // }
     if (
       this.bonus.some(
-        e => e.x - e.size < playerXPlus && e.x + e.size < playerYSubstract && playerYSubstract < e.x - e.size
+        e =>
+          e.x + e.size < playerXPlus &&
+          playerYSubstract < e.y + e.size &&
+          playerYPlus > e.y - e.size &&
+          playerXSubstract < e.x + e.size
       )
     ) {
       this.bonusStatus = true;

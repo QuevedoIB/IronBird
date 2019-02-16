@@ -118,6 +118,8 @@ const main = () => {
 
     const retryButton = document.getElementsByClassName("start-button");
     retryButton[0].addEventListener("click", buildGameScreen);
+
+    scoreHolder = 0;
   };
 
   const buildGameScreen = () => {
@@ -144,6 +146,9 @@ const main = () => {
       score.currentTime += startGame.bonusIncrease();
       scoreBox.innerText = `Score: ${score.currentTime}`;
       scoreHolder = score.currentTime;
+      if (startGame.over === true) {
+        clearInterval(score.intervalId);
+      }
     };
     score.startClick();
     score.updateDom(timer);
