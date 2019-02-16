@@ -3,11 +3,15 @@ class Score {
   constructor(canvas) {
     this.currentTime = 0;
     this.intervalId = null;
+    this.pause = false;
+    this.holdPause = false;
   }
   startClick() {
     let addTime = () => {
-      this.currentTime++;
-      this.update();
+      if (!this.pause) {
+        this.currentTime++;
+        this.update();
+      }
     };
 
     this.intervalId = setInterval(addTime, 500);

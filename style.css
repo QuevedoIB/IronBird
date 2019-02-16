@@ -80,7 +80,7 @@ button {
 
 .instructions {
   position: fixed;
-  bottom: 105px;
+  bottom: 155px;
   /* align-self: flex-end; */
   font-size: 16px;
 }
@@ -96,4 +96,22 @@ h4 {
   list-style-type: none;
   margin: 0;
   padding: 0;
+}
+
+#pause-text {
+  position: fixed;
+  top: 220px;
+  left: 40px;
+}
+
+.pause-text p {
+  font-family: Pixelade;
+}
+
+#pause-title {
+  font-family: Nokia;
+}
+
+.hide {
+  display: none;
 }

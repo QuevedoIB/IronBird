@@ -11,6 +11,7 @@ class Game {
     this.over = false;
     this.animation;
     this.pause = false;
+    this.holdPause = false;
   }
 
   startLoop() {
