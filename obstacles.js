@@ -1,6 +1,6 @@
 "use strict";
 class Obstacle {
-  constructor(canvas) {
+  constructor(canvas, night) {
     this.canvas = canvas;
     this.context = this.canvas.getContext("2d");
     this.size = this.canvas.height;
@@ -9,14 +9,23 @@ class Obstacle {
     this.direction = 4;
     this.spaceBetween = 200;
     this.randomNumber = Math.floor(Math.random() * (this.canvas.height - 288));
-    this.srcBot = "./sprites/pipe-green.png";
-    this.srcTop = "./sprites/top-green-pipe.png";
+    this.srcBot;
+    this.srcTop;
+    this.night = night;
   }
   update() {
     this.x -= this.direction;
   }
   draw() {
     this.y = this.randomNumber;
+
+    if (!this.night) {
+      this.srcBot = "./sprites/pipe-green.png";
+      this.srcTop = "./sprites/top-green-pipe.png";
+    } else {
+      this.srcBot = "./sprites/pipe-red.png";
+      this.srcTop = "./sprites/top-red-pipe.png";
+    }
 
     const imgBot = new Image();
     imgBot.onload = function() {};

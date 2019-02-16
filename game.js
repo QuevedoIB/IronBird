@@ -12,6 +12,7 @@ class Game {
     this.animation;
     this.pause = false;
     this.holdPause = false;
+    this.night = false;
   }
 
   startLoop() {
@@ -22,7 +23,7 @@ class Game {
       if (!this.pause) {
         const random = Math.floor(Math.random() * 2);
 
-        this.obstacles.push(new Obstacle(this.canvas));
+        this.obstacles.push(new Obstacle(this.canvas, this.night));
 
         if (random === 0) {
           this.bonus.push(new Bonus(this.canvas, 50));

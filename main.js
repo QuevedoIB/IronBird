@@ -98,43 +98,47 @@ const main = () => {
       startGame.player.jump();
     };
 
-    const imgDay = document.getElementById("day-background");
-    let opacityInterval;
+    let imgDay = document.getElementById("day-background");
+
     let nightCount = 0;
 
     imgDay.style.opacity = 1;
 
-    function opacityChange() {
-      opacityInterval = setInterval(animationOpacity, 5000);
+    let opacityInterval;
+
+    function startOpacity() {
+      setInterval(animationOpacity, 5000);
     }
 
     function animationOpacity() {
+      console.log(imgDay.style.opacity);
       if (imgDay.style.opacity == 0 && nightCount < 4) {
-        console.log("2");
+        //console.log("2");
+        startGame.night = true;
         startGame.player.night = true;
-        return nightCount++;
+        nightCount++;
       }
 
       if (imgDay.style.opacity >= 0 && nightCount === 0) {
-        console.log("1");
-        return (imgDay.style.opacity -= 0.25);
+        //console.log("1");
+        imgDay.style.opacity -= 0.25;
       }
 
-      if (nightCount === 4 && imgDay.style.opacity <= 1) {
-        console.log("3", imgDay.style.opacity);
+      if (imgDay.style.opacity < 1 && nightCount === 4) {
+        //console.log("3");
         imgDay.style.opacity += 0.25; //falla la suma
-        console.log(imgDay.style.opacity);
-        return;
       }
 
-      if (nigthCount === 4 && imgDay.style.opacity === 1) {
-        console.log("4");
+      if (imgDay.style.opacity == 1 && nightCount === 4) {
+        //console.log("4");
+        clearInterval(opacityInterval);
+        startGame.night = false;
         startGame.player.night = false;
-        return (nightCount = 0);
+        nightCount = 0;
       }
     }
 
-    const animationTimer = setInterval(opacityChange, 10000);
+    const animationTimer = setInterval(startOpacity, 20000);
     window.onload = animationTimer;
 
     section.addEventListener("click", setPlayerDirection);
