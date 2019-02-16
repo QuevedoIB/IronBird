@@ -93,21 +93,28 @@ const main = () => {
 
   const buildGameOverScreen = () => {
     buildDom(`
-    <section class="game-over-section>
+    <section class="game-over-section container>
       <audio autoplay loop  id="playAudio">
       <source src="music-project-1/Undertale - Megalovania.mp3" allow="autoplay">
       </audio>
-      <h1 class="title">Game Over</h1>
       <div class="container">
-        <p>Score</p>
+        <h1 class="title">You Died</h1>
+        <div class="score-text"></div>
         <button class="start-button">Retry</button>
+        <div id="player-dead-name"></div>
       </div>
     </section>
     `);
 
+    const graveyardName = document.getElementById("player-dead-name");
+    graveyardName.innerHTML = `${nameHolder}`;
+
     if (localStorage[nameHolder] < scoreHolder) {
       localStorage.setItem(nameHolder, scoreHolder);
     }
+
+    const scoreSquare = document.getElementsByClassName("score-text")[0];
+    scoreSquare.innerHTML = `Total score: ${scoreHolder} pts!`;
 
     const retryButton = document.querySelector("button");
     retryButton.addEventListener("click", buildGameScreen);

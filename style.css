@@ -8,6 +8,11 @@
   src: url("./fonts/PIXELADE.TTF");
 }
 
+@font-face {
+  font-family: Chaos;
+  src: url("./fonts/Pixel\ Chaos.ttf");
+}
+
 html {
   box-sizing: border-box;
 }
@@ -60,7 +65,7 @@ section {
 }
 
 .start-button {
-  margin-bottom: 30px;
+  margin: 30px 0;
   justify-self: center;
 }
 
@@ -84,6 +89,19 @@ button {
 .night-game-section {
   background-image: url("./sprites/background-night.png");
   background-repeat: no-repeat;
+}
+
+.game-over-section {
+  background-image: url("./sprites//background-night-end.png");
+  background-repeat: no-repeat;
+}
+
+#player-dead-name {
+  color: #212121;
+  font-family: Nokia;
+  font-size: 16px;
+  margin-top: 120px;
+  justify-self: center;
 }
 
 #timer {
@@ -148,5 +166,16 @@ h4 {
 
 #name-text {
   height: 30px;
-  margin-bottom: 15px;
+}
+
+.title {
+  margin-top: 45px;
+  font-family: Nokia;
+  justify-self: center;
+  font-size: 40px;
+}
+
+.score-text {
+  font-family: Pixelade;
+  font-size: 28px;
 }
