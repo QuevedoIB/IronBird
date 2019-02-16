@@ -201,6 +201,7 @@ const main = () => {
     window.onload = animationTimer;
 
     section.addEventListener("click", setPlayerDirection);
+
     window.addEventListener("keydown", function(e) {
       const key = e.keyCode;
       if (key === 32) {

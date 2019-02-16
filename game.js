@@ -82,6 +82,14 @@ class Game {
       this.bonusStatus = true;
       this.bonus = this.bonus.filter(e => e.x > playerXPlus && e.y > playerYPlus && playerYSubstract > e.y);
     }
+    if (
+      this.bonus.some(
+        e => e.x - e.size < playerXPlus && e.x + e.size < playerYSubstract && playerYSubstract < e.x - e.size
+      )
+    ) {
+      this.bonusStatus = true;
+      this.bonus = this.bonus.filter(e => e.x > playerXPlus && e.y > playerYPlus);
+    }
     // && playerYSubstr < e.y
     if (playerYPlus > this.base.y - this.base.size / 2) {
       this.over = true;
