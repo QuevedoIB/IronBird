@@ -65,7 +65,6 @@ section {
 }
 
 .start-button {
-  margin: 30px 0;
   justify-self: center;
 }
 
@@ -100,7 +99,7 @@ button {
   color: #212121;
   font-family: Nokia;
   font-size: 16px;
-  margin-top: 120px;
+  margin-top: 110px;
   justify-self: center;
 }
 
@@ -113,7 +112,7 @@ button {
 
 .instructions {
   position: fixed;
-  bottom: 155px;
+  bottom: 105px;
   font-size: 16px;
 }
 

@@ -17,7 +17,7 @@ const main = () => {
       </audio>
       <article class="container buttons-start">
         <input type="text" id="name-text" placeholder=" Insert Name">
-        <button class="start-button">START</button>
+        <img class="start-button" src="./sprites/bigButtonStart.png">
         <div class="leaderBoards">
           <h4 class="instructions-title">LEADERBOARDS</h4>
           <p id="leader-boards-text"></p>
@@ -100,7 +100,7 @@ const main = () => {
       <div class="container">
         <h1 class="title">You Died</h1>
         <div class="score-text"></div>
-        <button class="start-button">Retry</button>
+        <img class="start-button" src="./sprites/bigRetryButton.png">
         <div id="player-dead-name"></div>
       </div>
     </section>
@@ -116,8 +116,8 @@ const main = () => {
     const scoreSquare = document.getElementsByClassName("score-text")[0];
     scoreSquare.innerHTML = `Total score: ${scoreHolder} pts!`;
 
-    const retryButton = document.querySelector("button");
-    retryButton.addEventListener("click", buildGameScreen);
+    const retryButton = document.getElementsByClassName("start-button");
+    retryButton[0].addEventListener("click", buildGameScreen);
   };
 
   const buildGameScreen = () => {
