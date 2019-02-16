@@ -1,5 +1,8 @@
 "use strict";
 const main = () => {
+  let nameHolder;
+  let scoreHolder;
+
   const buildDom = html => {
     const body = document.querySelector("body");
     body.innerHTML = html;
@@ -13,8 +16,13 @@ const main = () => {
       <source src="music-project-1/intromusic.mp3">
       </audio>
       <article class="container buttons-start">
+      <input type="text" id="name-text">
+      <button type="button" id="name-button"></button>
         <button class="start-button">START</button>
-        <button class="leaderboards-button">LEADERBOARDS</button>
+        <div class="leaderBoards">
+          <h4 class="instructions-title">LEADERBOARDS</h4>
+          <p id="leader-boards-text"></p>
+        </div>
       </article>
       <article class="instructions">
       <h4 class="instructions-title">Instructions</h4>
@@ -26,14 +34,48 @@ const main = () => {
     </section>
     `);
 
+    const input = document.getElementById("name-text");
+    const inputButton = document.getElementById("name-button");
+    const leaderBoardText = document.getElementById("leader-boards-text");
+
+    function saveName() {
+      const nameValue = input.value;
+      nameHolder = nameValue;
+      if (nameValue) {
+        localStorage.setItem(nameValue, 0);
+      }
+    }
+
+    function sortLocalStorage() {
+      if (localStorage.length > 0) {
+        let localStorageArray = [];
+        for (let i = 0; i < localStorage.length; i++) {
+          localStorageArray.push([localStorage.key(i), localStorage.getItem(localStorage.key(i))]);
+        }
+
+        let sortedLocalArray = localStorageArray.sort((a, b) => b[1] - a[1]);
+
+        let top3 = sortedLocalArray.slice(0, 3);
+        localStorage.clear();
+
+        top3.forEach(e => {
+          localStorage.setItem(e[0], e[1]);
+          leaderBoardText.innerHTML += `${e[0]}: ${e[1]}<br>`;
+        });
+      }
+    }
+
+    sortLocalStorage();
+
+    inputButton.addEventListener("click", saveName);
+
     const buttonStart = document.getElementsByClassName("start-button");
 
     buttonStart[0].addEventListener("click", buildGameScreen);
 
-    const buttonLeaderboards = document.getElementsByClassName("leaderboards-button");
-
-    //cambiar al final
-    buttonLeaderboards[0].addEventListener("click", buildGameOverScreen);
+    // const buttonLeaderboards = document.getElementsByClassName("leaderboards-button");
+    // //cambiar al final
+    // buttonLeaderboards[0].addEventListener("click", buildGameOverScreen);
   };
 
   const buildGameOverScreen = () => {
@@ -49,6 +91,10 @@ const main = () => {
       </div>
     </section>
     `);
+
+    if (localStorage[nameHolder] < scoreHolder) {
+      localStorage.setItem(nameHolder, scoreHolder);
+    }
 
     const retryButton = document.querySelector("button");
     retryButton.addEventListener("click", buildGameScreen);
@@ -77,6 +123,7 @@ const main = () => {
     const timer = () => {
       score.currentTime += startGame.bonusIncrease();
       scoreBox.innerText = `Score: ${score.currentTime}`;
+      scoreHolder = score.currentTime;
     };
     score.startClick();
     score.updateDom(timer);
@@ -111,7 +158,6 @@ const main = () => {
     }
 
     function animationOpacity() {
-      console.log(imgDay.style.opacity);
       if (imgDay.style.opacity == 0 && nightCount < 4) {
         //console.log("2");
         startGame.night = true;

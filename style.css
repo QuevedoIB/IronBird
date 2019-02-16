@@ -130,3 +130,12 @@ h4 {
 .hide {
   display: none;
 }
+
+#name-button {
+  padding: 7px;
+}
+
+#leader-boards-text {
+  font-family: Pixelade;
+  font-size: 20px;
+}
