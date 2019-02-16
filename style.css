@@ -136,6 +136,18 @@ h4 {
 }
 
 #leader-boards-text {
+  text-align: center;
   font-family: Pixelade;
   font-size: 20px;
+}
+
+.commands {
+  font-family: Pixelade;
+  font-size: 18px;
+  line-height: 0.5;
+}
+
+#name-text {
+  height: 30px;
+  margin-bottom: 15px;
 }

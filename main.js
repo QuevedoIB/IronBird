@@ -16,15 +16,18 @@ const main = () => {
       <source src="music-project-1/intromusic.mp3">
       </audio>
       <article class="container buttons-start">
-      <input type="text" id="name-text">
-      <button type="button" id="name-button"></button>
+        <input type="text" id="name-text" placeholder=" Insert Name">
         <button class="start-button">START</button>
         <div class="leaderBoards">
           <h4 class="instructions-title">LEADERBOARDS</h4>
           <p id="leader-boards-text"></p>
         </div>
+        <div class="commands">
+        <p>Left click to JUMP</p>
+        <p>Spacebar to pause</p>
+        </div>
       </article>
-      <article class="instructions">
+      <article class="container instructions">
       <h4 class="instructions-title">Instructions</h4>
         <ul class="instruction-list container">
         <li> Drink Coffee </li>
@@ -35,11 +38,15 @@ const main = () => {
     `);
 
     const input = document.getElementById("name-text");
-    const inputButton = document.getElementById("name-button");
     const leaderBoardText = document.getElementById("leader-boards-text");
 
     function saveName() {
-      const nameValue = input.value;
+      let nameValue = input.value;
+      console.log(nameValue);
+      if (nameValue === "") {
+        nameValue = "Anonymous";
+      }
+      console.log(nameHolder);
       nameHolder = nameValue;
       if (nameValue) {
         localStorage.setItem(nameValue, 0);
@@ -60,18 +67,24 @@ const main = () => {
 
         top3.forEach(e => {
           localStorage.setItem(e[0], e[1]);
-          leaderBoardText.innerHTML += `${e[0]}: ${e[1]}<br>`;
+          leaderBoardText.innerHTML += `${e[0]}: ${e[1]} pts<br>`;
         });
       }
     }
 
     sortLocalStorage();
 
-    inputButton.addEventListener("click", saveName);
-
     const buttonStart = document.getElementsByClassName("start-button");
 
+    window.addEventListener("keydown", function(e) {
+      const keyDown = e.keyCode;
+      if (keyDown === 13) {
+        saveName();
+      }
+    });
+
     buttonStart[0].addEventListener("click", buildGameScreen);
+    buttonStart[0].addEventListener("click", saveName);
 
     // const buttonLeaderboards = document.getElementsByClassName("leaderboards-button");
     // //cambiar al final
