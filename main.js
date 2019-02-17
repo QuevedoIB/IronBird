@@ -265,7 +265,7 @@ const main = () => {
             <img src="./sprites/shop-red-bird.png" />
             <p class="price-word">Price: 
               <span id="red-bird-skin" class="price-text">
-              2
+              500
               </span>
             </p>
             <div class="row-container">
@@ -277,7 +277,7 @@ const main = () => {
             <img src="./sprites/shop-yellow-bird.png" />
             <p class="price-word">Price: 
               <span id="yellow-bird-skin" class="price-text">
-                3
+                500
               </span>
             </p>
             <div class="row-container">
