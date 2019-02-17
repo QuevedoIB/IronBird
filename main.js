@@ -28,8 +28,8 @@ const main = () => {
           <p id="leader-boards-text"></p>
         </div>
         <div class="commands">
-        <p>Left click to JUMP</p>
-        <p>Spacebar to pause</p>
+        <p>Left click/spacebar to JUMP</p>
+        <p>P to pause</p>
         </div>
       </article>
       <article class="container instructions">
