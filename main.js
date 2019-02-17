@@ -171,10 +171,7 @@ const main = () => {
     let imgDay = document.getElementById("day-background");
     let number = 1;
     let nightCount = 0;
-
-    let opacityInterval;
-
-    let intervalOpacity = setInterval(animationOpacity, 5000);
+    let dayCount = 0;
 
     function animationOpacity() {
       if (number == 0 && nightCount < 4) {
@@ -183,6 +180,20 @@ const main = () => {
         startGame.player.night = true;
         nightCount++;
         imgDay.style.opacity = number;
+        return;
+      }
+
+      if (number === 1 && nightCount === 4) {
+        console.log("4");
+        startGame.night = false;
+        startGame.player.night = false;
+        nightCount = 0;
+        imgDay.style.opacity = number;
+        return;
+      }
+
+      if (number === 1 && dayCount < 5) {
+        dayCount++;
         return;
       }
 
@@ -195,24 +206,14 @@ const main = () => {
 
       if (number < 1 && nightCount === 4) {
         console.log("3");
-        number += 0.25; //falla la suma
+        number += 0.25;
         imgDay.style.opacity = number;
-        return;
-      }
-
-      if (number === 1 && nightCount === 4) {
-        console.log("4");
-        clearInterval(opacityInterval);
-        startGame.night = false;
-        startGame.player.night = false;
-        nightCount = 0;
-        imgDay.style.opacity = number;
-        clearInterval(intervalOpacity);
+        dayCount = 0;
         return;
       }
     }
 
-    const animationTimer = setInterval(intervalOpacity, 20000);
+    const animationTimer = setInterval(animationOpacity, 5000);
     window.onload = animationTimer;
 
     section.addEventListener("click", setPlayerDirection);
