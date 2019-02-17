@@ -42,11 +42,9 @@ const main = () => {
 
     function saveName() {
       let nameValue = input.value;
-      console.log(nameValue);
       if (nameValue === "") {
         nameValue = "Anonymous";
       }
-      console.log(nameHolder);
       nameHolder = nameValue;
       if (nameValue) {
         localStorage.setItem(nameValue, 0);
@@ -171,45 +169,50 @@ const main = () => {
     };
 
     let imgDay = document.getElementById("day-background");
-
+    let number = 1;
     let nightCount = 0;
-
-    imgDay.style.opacity = 1;
 
     let opacityInterval;
 
-    function startOpacity() {
-      setInterval(animationOpacity, 5000);
-    }
+    let intervalOpacity = setInterval(animationOpacity, 5000);
 
     function animationOpacity() {
-      if (imgDay.style.opacity == 0 && nightCount < 4) {
-        //console.log("2");
+      if (number == 0 && nightCount < 4) {
+        console.log("1");
         startGame.night = true;
         startGame.player.night = true;
         nightCount++;
+        imgDay.style.opacity = number;
+        return;
       }
 
-      if (imgDay.style.opacity >= 0 && nightCount === 0) {
-        //console.log("1");
-        imgDay.style.opacity -= 0.25;
+      if (number > 0 && nightCount === 0) {
+        console.log("2");
+        number -= 0.25;
+        imgDay.style.opacity = number;
+        return;
       }
 
-      if (imgDay.style.opacity < 1 && nightCount === 4) {
-        //console.log("3");
-        imgDay.style.opacity += 0.25; //falla la suma
+      if (number < 1 && nightCount === 4) {
+        console.log("3");
+        number += 0.25; //falla la suma
+        imgDay.style.opacity = number;
+        return;
       }
 
-      if (imgDay.style.opacity == 1 && nightCount === 4) {
-        //console.log("4");
+      if (number === 1 && nightCount === 4) {
+        console.log("4");
         clearInterval(opacityInterval);
         startGame.night = false;
         startGame.player.night = false;
         nightCount = 0;
+        imgDay.style.opacity = number;
+        clearInterval(intervalOpacity);
+        return;
       }
     }
 
-    const animationTimer = setInterval(startOpacity, 20000);
+    const animationTimer = setInterval(intervalOpacity, 20000);
     window.onload = animationTimer;
 
     section.addEventListener("click", setPlayerDirection);

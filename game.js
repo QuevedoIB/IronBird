@@ -74,52 +74,52 @@ class Game {
   }
 
   checkPositions() {
-    const playerXPlus = this.player.x + this.player.size / 2;
-    const playerYPlus = this.player.y + this.player.size / 2;
-    const playerYSubstract = this.player.y - this.player.size / 2;
-    const playerXSubstract = this.player.x - this.player.size / 2;
-    this.player.checkScreen();
-    // if (this.bonus.some(e => e.x < playerXPlus && e.y < playerYPlus && playerYSubstract < e.y)) {
+    // const playerXPlus = this.player.x + this.player.size / 2;
+    // const playerYPlus = this.player.y + this.player.size / 2;
+    // const playerYSubstract = this.player.y - this.player.size / 2;
+    // const playerXSubstract = this.player.x - this.player.size / 2;
+    // this.player.checkScreen();
+    // // if (this.bonus.some(e => e.x < playerXPlus && e.y < playerYPlus && playerYSubstract < e.y)) {
+    // //   this.bonusStatus = true;
+    // //   this.bonus = this.bonus.filter(e => e.x > playerXPlus && e.y > playerYPlus && playerYSubstract > e.y);
+    // // }
+    // if (
+    //   this.bonus.some(
+    //     e =>
+    //       e.x + e.size < playerXPlus &&
+    //       playerYSubstract < e.y + e.size &&
+    //       playerYPlus > e.y - e.size &&
+    //       playerXSubstract < e.x + e.size
+    //   )
+    // ) {
     //   this.bonusStatus = true;
-    //   this.bonus = this.bonus.filter(e => e.x > playerXPlus && e.y > playerYPlus && playerYSubstract > e.y);
+    //   this.bonus = this.bonus.filter(e => e.x > playerXPlus && e.y > playerYPlus);
     // }
-    if (
-      this.bonus.some(
-        e =>
-          e.x + e.size < playerXPlus &&
-          playerYSubstract < e.y + e.size &&
-          playerYPlus > e.y - e.size &&
-          playerXSubstract < e.x + e.size
-      )
-    ) {
-      this.bonusStatus = true;
-      this.bonus = this.bonus.filter(e => e.x > playerXPlus && e.y > playerYPlus);
-    }
-    // && playerYSubstr < e.y
-    if (playerYPlus > this.base.y - this.base.size / 2) {
-      this.over = true;
-      this.onGameOver();
-    }
-    if (
-      this.obstacles.some(
-        e => e.x < playerXPlus && e.y > playerYSubstract
-        // &&
-        // e.x + this.size / 10 > this.player.x - this.player.size / 2
-      )
-    ) {
-      this.over = true;
-      this.onGameOver();
-    }
-    if (
-      this.obstacles.some(
-        e => e.x < playerXPlus && e.y + e.spaceBetween < playerYPlus
-        // &&
-        // e.x + this.size / 10 > this.player.x - this.player.size / 2
-      )
-    ) {
-      this.over = true;
-      this.onGameOver();
-    }
+    // // && playerYSubstr < e.y
+    // if (playerYPlus > this.base.y - this.base.size / 2) {
+    //   this.over = true;
+    //   this.onGameOver();
+    // }
+    // if (
+    //   this.obstacles.some(
+    //     e => e.x < playerXPlus && e.y > playerYSubstract
+    //     // &&
+    //     // e.x + this.size / 10 > this.player.x - this.player.size / 2
+    //   )
+    // ) {
+    //   this.over = true;
+    //   this.onGameOver();
+    // }
+    // if (
+    //   this.obstacles.some(
+    //     e => e.x < playerXPlus && e.y + e.spaceBetween < playerYPlus
+    //     // &&
+    //     // e.x + this.size / 10 > this.player.x - this.player.size / 2
+    //   )
+    // ) {
+    //   this.over = true;
+    //   this.onGameOver();
+    // }
   }
 
   gameOverCallback(callback) {
