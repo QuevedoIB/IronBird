@@ -3,6 +3,8 @@ const main = () => {
   let nameHolder;
   let scoreHolder;
   let bonusCollected = 0;
+  let skinPlayer = "blue-bird-skin";
+  const owned = [];
 
   const buildDom = html => {
     const body = document.querySelector("body");
@@ -19,6 +21,7 @@ const main = () => {
       <article class="container buttons-start">
         <input type="text" id="name-text" placeholder=" Insert Name">
         <img class="start-button" src="./sprites/bigButtonStart.png">
+        <button id="shop-button" class="start-button">Shop</button>
         <div class="leaderBoards">
           <h4 class="instructions-title">LEADERBOARDS</h4>
           <p id="leader-boards-text"></p>
@@ -37,6 +40,9 @@ const main = () => {
         </article>
     </section>
     `);
+
+    const shopButton = document.getElementById("shop-button");
+    shopButton.addEventListener("click", buildShopScreen);
 
     const input = document.getElementById("name-text");
     const leaderBoardText = document.getElementById("leader-boards-text");
@@ -84,10 +90,6 @@ const main = () => {
 
     buttonStart[0].addEventListener("click", buildGameScreen);
     buttonStart[0].addEventListener("click", saveName);
-
-    // const buttonLeaderboards = document.getElementsByClassName("leaderboards-button");
-    // //cambiar al final
-    // buttonLeaderboards[0].addEventListener("click", buildGameOverScreen);
   };
 
   const buildGameOverScreen = () => {
@@ -162,7 +164,7 @@ const main = () => {
     canvasElement.setAttribute("width", width);
     canvasElement.setAttribute("height", height);
 
-    const startGame = new Game(canvasElement);
+    const startGame = new Game(canvasElement, skinPlayer);
     startGame.gameOverCallback(buildGameOverScreen);
     startGame.startLoop();
 
@@ -243,24 +245,94 @@ const main = () => {
 
   const buildShopScreen = () => {
     buildDom(`
-    <section id="shop-section">
-      <h1 class="title">Shop</h1>
-      <div class="container">
-        <p class="score-text><p>  
-        <div class="container">
-          <img src="./sprites/shop-red-bird.png>
-          <button id="red-bird-button" type"button">Purchase</button>
+      <section id="shop-section" class="container">
+        <div class="container">  
+          <h1 class="title">Shop</h1>
+          <h2 class="score-text"></h2>
         </div>
         <div class="container">
-          <img src="./sprites/shop-yellow-bird.png>
-          <button id="yellow-bird-button">Purchase</button>
+          <div class="container group">
+            <img src="./sprites/shop-red-bird.png" />
+            <p class="price-word">Price: 
+              <span id="red-bird" class="price-text">
+              2
+              </span>
+            </p>
+            <div class="row-container">
+              <img id="red-bird-button" class="purchase-button" src="./sprites/buttonpurchase.png" />
+              <img id="red-bird-equip" class="equip-button" src="./sprites/equipbutton.png" />
+            </div>
+          </div>
+          <div class="container group">
+            <img src="./sprites/shop-yellow-bird.png" />
+            <p class="price-word">Price: 
+              <span id="yellow-bird" class="price-text">
+                3
+              </span>
+            </p>
+            <div class="row-container">
+              <img id="yellow-bird-button" class="purchase-button" src="./sprites/buttonpurchase.png" />
+              <img id="yellow-bird-equip" class="equip-button" src="./sprites/equipbutton.png" />
+            </div>
+          </div>
+          <div>
+            <button id="back-to-main" type="button">
+              Back to Menu
+            </button>
+          </div>
         </div>
-      <div>
-    </section>
+      </section>
     `);
 
+    let elementDom;
+
+    function getDomElementById(id) {
+      console.log("hola");
+      elementDom = document.getElementById(id);
+      checkValue(elementDom, id);
+    }
+
+    function checkValue(element, id) {
+      let value = element.innerHTML;
+      if (bonusCollected >= value) {
+        bonusCollected -= value;
+        owned.push(id);
+      } else {
+        alert("Not enough pts, Go play poor!");
+      }
+    }
+
+    function checkOwned(skinId) {
+      if (owned.some(e => e === skinId)) {
+        changePlayerSkin(skinId);
+      }
+    }
+
+    function changePlayerSkin(skinId) {
+      if (skinPlayer !== skinId) {
+        skinPlayer = skinId;
+      } else {
+        skinPlayer = "blue-bird-skin";
+      }
+    }
+
     const bonusLeft = document.getElementsByClassName("score-text");
-    bonusLeft.innerHTML = `${bonusCollected} pts`;
+
+    bonusLeft[0].innerHTML = `${bonusCollected} pts`;
+
+    const purchaseRed = document.getElementById("red-bird-button");
+    const equipRed = document.getElementById("red-bird-equip");
+
+    const purchaseYellow = document.getElementById("yellow-bird-button");
+    const equipYellow = document.getElementById("yellow-bird-equip");
+
+    const backButton = document.getElementById("back-to-main");
+
+    purchaseRed.addEventListener("click", getDomElementById("red-bird"));
+    purchaseYellow.addEventListener("click", getDomElementById("yellow-bird"));
+    backButton.addEventListener("click", buildSplash);
+    equipRed.addEventListener("click", checkOwned("red-bird-skin"));
+    equipYellow.addEventListener("click", checkOwned("yellow-bird-skin"));
   };
 
   buildSplash();

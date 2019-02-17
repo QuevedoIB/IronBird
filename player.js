@@ -1,13 +1,14 @@
 "use strict";
 class Player {
-  constructor(canvas) {
+  constructor(canvas, playerSkin) {
     this.canvas = canvas;
     this.size = 30;
     this.x = 20 + this.size / 2;
     this.y = this.canvas.height / 2;
     this.context = this.canvas.getContext("2d");
     this.direction = 3.5;
-    this.src = "./sprites/bluemidglasses.png";
+    this.skin = "yellow-bird-skin";
+    this.src;
     this.frameCount = "mid-to-top";
     this.jumpSpeed = 35;
     this.vertSpeed = 0;
@@ -27,7 +28,6 @@ class Player {
 
   jump() {
     this.vertSpeed = this.jumpSpeed;
-    //añadir propiedad velocidad , inicialmente restar un valor pequeño a y y progresivamente seguir restandole hasta cierta cifra
   }
 
   draw() {
@@ -39,18 +39,52 @@ class Player {
   }
 
   frameUpdate(value) {
-    if (value === "mid-to-top") {
-      this.frameCount = "top-to-mid";
-      return (this.src = "./sprites/blueupglasses.png");
-    } else if (value === "top-to-mid") {
-      this.frameCount = "mid-to-bot";
-      return (this.src = "./sprites/bluemidglasses.png");
-    } else if (value === "mid-to-bot") {
-      this.frameCount = "bot-to-mid";
-      return (this.src = "./sprites/bluedownglasses.png");
-    } else if (value === "bot-to-mid") {
-      this.frameCount = "mid-to-top";
-      return (this.src = "./sprites/bluemidglasses.png");
+    if (this.skin === "blue-bird-skin") {
+      if (value === "mid-to-top") {
+        this.frameCount = "top-to-mid";
+        return (this.src = "./sprites/blueupglasses.png");
+      } else if (value === "top-to-mid") {
+        this.frameCount = "mid-to-bot";
+        return (this.src = "./sprites/bluemidglasses.png");
+      } else if (value === "mid-to-bot") {
+        this.frameCount = "bot-to-mid";
+        return (this.src = "./sprites/bluedownglasses.png");
+      } else if (value === "bot-to-mid") {
+        this.frameCount = "mid-to-top";
+        return (this.src = "./sprites/bluemidglasses.png");
+      }
+    }
+
+    if (this.skin === "red-bird-skin") {
+      if (value === "mid-to-top") {
+        this.frameCount = "top-to-mid";
+        return (this.src = "./sprites/redbird-upflap.png");
+      } else if (value === "top-to-mid") {
+        this.frameCount = "mid-to-bot";
+        return (this.src = "./sprites/redbird-midflap.png");
+      } else if (value === "mid-to-bot") {
+        this.frameCount = "bot-to-mid";
+        return (this.src = "./sprites/redbird-downflap.png");
+      } else if (value === "bot-to-mid") {
+        this.frameCount = "mid-to-top";
+        return (this.src = "./sprites/redbird-midflap.png");
+      }
+    }
+
+    if (this.skin === "yellow-bird-skin") {
+      if (value === "mid-to-top") {
+        this.frameCount = "top-to-mid";
+        return (this.src = "./sprites/yellowbird-upflap.png");
+      } else if (value === "top-to-mid") {
+        this.frameCount = "mid-to-bot";
+        return (this.src = "./sprites/yellowbird-midflap.png");
+      } else if (value === "mid-to-bot") {
+        this.frameCount = "bot-to-mid";
+        return (this.src = "./sprites/yellowbird-downflap.png");
+      } else if (value === "bot-to-mid") {
+        this.frameCount = "mid-to-top";
+        return (this.src = "./sprites/yellowbird-midflap.png");
+      }
     }
   }
 
@@ -60,15 +94,3 @@ class Player {
     }
   }
 }
-
-// draw() {
-//   const img = new Image();
-//   img.onload = function() {};
-//   img.src = "./sprites/bluemidglasses.png";
-//   this.context.drawImage(img, this.x - this.size / 2, this.y - this.size / 2, this.size, this.size);
-// }
-
-// draw() {
-//   this.context.fillStyle = "green";
-//   this.context.fillRect(this.x - this.size / 2, this.y - this.size / 2, this.size, this.size);
-// }

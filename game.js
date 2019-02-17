@@ -1,6 +1,6 @@
 "use strict";
 class Game {
-  constructor(canvas) {
+  constructor(canvas, skinPlayer) {
     this.canvas = canvas;
     this.context = canvas.getContext("2d");
     this.player;
@@ -13,10 +13,11 @@ class Game {
     this.pause = false;
     this.holdPause = false;
     this.night = false;
+    this.playerSkin = skinPlayer;
   }
 
   startLoop() {
-    this.player = new Player(this.canvas);
+    this.player = new Player(this.canvas, this.playerSkin);
     this.base = new Base(this.canvas);
 
     const generate = () => {

@@ -178,4 +178,38 @@ h4 {
 .score-text {
   font-family: Pixelade;
   font-size: 28px;
+  margin-top: 0;
+}
+
+#shop-section {
+  justify-content: space-between;
+  background-image: url("./sprites/background-day.png");
+}
+
+#back-to-main {
+  margin: 15px 0;
+}
+
+.group {
+  margin-bottom: 15px;
+}
+
+.price-text,
+.price-word {
+  display: inline;
+  font-family: Pixelade;
+  font-size: 20px;
+  margin: 0;
+  margin-top: 10px;
+}
+
+.price-word {
+  display: inline;
+}
+
+.row-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
