@@ -18,6 +18,7 @@ class Game {
 
   startLoop() {
     this.player = new Player(this.canvas, this.playerSkin);
+    this.player.initialFrame();
     this.base = new Base(this.canvas);
 
     const generate = () => {

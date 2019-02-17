@@ -93,4 +93,14 @@ class Player {
       this.y = this.size / 2;
     }
   }
+
+  initialFrame() {
+    if (this.skin === "blue-bird-skin") {
+      this.src = "./sprites/bluemidglasses.png";
+    } else if (this.skin === "red-bird-skin") {
+      this.src = "./sprites/redbird-midflap.png";
+    } else if (this.skin === "yellow-bird-skin") {
+      this.src = "./sprites/yellowbird-midflap.png";
+    }
+  }
 }
