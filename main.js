@@ -2,6 +2,7 @@
 const main = () => {
   let nameHolder;
   let scoreHolder;
+  let bonusCollected = 0;
 
   const buildDom = html => {
     const body = document.querySelector("body");
@@ -142,6 +143,7 @@ const main = () => {
     const score = new Score();
     const timer = () => {
       score.currentTime += startGame.bonusIncrease();
+      bonusCollected += startGame.bonusIncrease;
       scoreBox.innerText = `Score: ${score.currentTime}`;
       scoreHolder = score.currentTime;
       if (startGame.over === true) {
@@ -175,45 +177,38 @@ const main = () => {
 
     function animationOpacity() {
       if (number == 0 && nightCount < 4) {
-        console.log("1");
         startGame.night = true;
         startGame.player.night = true;
+
         nightCount++;
         imgDay.style.opacity = number;
-        return;
       }
 
       if (number === 1 && nightCount === 4) {
-        console.log("4");
         startGame.night = false;
         startGame.player.night = false;
+
         nightCount = 0;
         imgDay.style.opacity = number;
-        return;
       }
 
       if (number === 1 && dayCount < 5) {
         dayCount++;
-        return;
       }
 
       if (number > 0 && nightCount === 0) {
-        console.log("2");
         number -= 0.25;
         imgDay.style.opacity = number;
-        return;
       }
 
       if (number < 1 && nightCount === 4) {
-        console.log("3");
         number += 0.25;
         imgDay.style.opacity = number;
         dayCount = 0;
-        return;
       }
     }
 
-    const animationTimer = setInterval(animationOpacity, 5000);
+    const animationTimer = setInterval(animationOpacity, 5685);
     window.onload = animationTimer;
 
     section.addEventListener("click", setPlayerDirection);
@@ -244,6 +239,28 @@ const main = () => {
         score.holdPause = false;
       }
     });
+  };
+
+  const buildShopScreen = () => {
+    buildDom(`
+    <section id="shop-section">
+      <h1 class="title">Shop</h1>
+      <div class="container">
+        <p class="score-text><p>  
+        <div class="container">
+          <img src="./sprites/shop-red-bird.png>
+          <button id="red-bird-button" type"button">Purchase</button>
+        </div>
+        <div class="container">
+          <img src="./sprites/shop-yellow-bird.png>
+          <button id="yellow-bird-button">Purchase</button>
+        </div>
+      <div>
+    </section>
+    `);
+
+    const bonusLeft = document.getElementsByClassName("score-text");
+    bonusLeft.innerHTML = `${bonusCollected} pts`;
   };
 
   buildSplash();

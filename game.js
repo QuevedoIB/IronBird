@@ -70,53 +70,44 @@ class Game {
   clearCanvas() {
     this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
     this.obstacles = this.obstacles.filter(e => e.x > -e.size / 10);
-    this.bonus = this.bonus.filter(e => e.x > -30);
+    this.bonus = this.bonus.filter(e => e.x > -50);
   }
 
   checkPositions() {
-    // const playerXPlus = this.player.x + this.player.size / 2;
-    // const playerYPlus = this.player.y + this.player.size / 2;
-    // const playerYSubstract = this.player.y - this.player.size / 2;
-    // const playerXSubstract = this.player.x - this.player.size / 2;
-    // this.player.checkScreen();
-    // // if (this.bonus.some(e => e.x < playerXPlus && e.y < playerYPlus && playerYSubstract < e.y)) {
-    // //   this.bonusStatus = true;
-    // //   this.bonus = this.bonus.filter(e => e.x > playerXPlus && e.y > playerYPlus && playerYSubstract > e.y);
-    // // }
-    // if (
-    //   this.bonus.some(
-    //     e =>
-    //       e.x + e.size < playerXPlus &&
-    //       playerYSubstract < e.y + e.size &&
-    //       playerYPlus > e.y - e.size &&
-    //       playerXSubstract < e.x + e.size
-    //   )
-    // ) {
-    //   this.bonusStatus = true;
-    //   this.bonus = this.bonus.filter(e => e.x > playerXPlus && e.y > playerYPlus);
-    // }
-    // // && playerYSubstr < e.y
+    const playerXPlus = this.player.x + this.player.size / 2;
+    const playerYPlus = this.player.y + this.player.size / 2;
+    const playerYSubstract = this.player.y - this.player.size / 2;
+    const playerXSubstract = this.player.x - this.player.size / 2;
+    this.player.checkScreen();
+
+    if (
+      this.bonus.some(
+        e =>
+          e.x < playerXPlus && //- e.size / 2
+          e.y + e.size / 2 > playerYSubstract &&
+          e.y < playerYPlus && //- e.size / 2
+          e.x + e.size / 2 > playerXSubstract
+      )
+    ) {
+      this.bonusStatus = true;
+      this.bonus = this.bonus.filter(
+        e =>
+          playerXPlus < e.x - e.size / 2 &&
+          playerYSubstract > e.y + e.size / 2 &&
+          playerYPlus < e.y - e.size / 2 &&
+          playerXSubstract > e.x - e.size / 2
+      );
+    }
+
     // if (playerYPlus > this.base.y - this.base.size / 2) {
     //   this.over = true;
     //   this.onGameOver();
     // }
-    // if (
-    //   this.obstacles.some(
-    //     e => e.x < playerXPlus && e.y > playerYSubstract
-    //     // &&
-    //     // e.x + this.size / 10 > this.player.x - this.player.size / 2
-    //   )
-    // ) {
+    // if (this.obstacles.some(e => e.x < playerXPlus && e.y > playerYSubstract)) {
     //   this.over = true;
     //   this.onGameOver();
     // }
-    // if (
-    //   this.obstacles.some(
-    //     e => e.x < playerXPlus && e.y + e.spaceBetween < playerYPlus
-    //     // &&
-    //     // e.x + this.size / 10 > this.player.x - this.player.size / 2
-    //   )
-    // ) {
+    // if (this.obstacles.some(e => e.x < playerXPlus && e.y + e.spaceBetween < playerYPlus)) {
     //   this.over = true;
     //   this.onGameOver();
     // }
