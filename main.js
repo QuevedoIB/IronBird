@@ -5,6 +5,7 @@ const main = () => {
   let bonusCollected = 0;
   let skinPlayer = "blue-bird-skin";
   const owned = [];
+  let spacebarHolder = false;
 
   const buildDom = html => {
     const body = document.querySelector("body");
@@ -139,7 +140,7 @@ const main = () => {
       <img src="./sprites/background-day.png" id="day-background"> 
     <div id="timer"></div>  
     <div id="pause-text" class="container hide"><h1 id="pause-title">Paused</h1>
-    <p>Press SPACEBAR to resume</p>
+    <p>Press P to resume</p>
     </div>
     <canvas></canvas>
     </section>
@@ -175,8 +176,6 @@ const main = () => {
     const startGame = new Game(canvasElement, skinPlayer);
     startGame.gameOverCallback(buildGameOverScreen);
     startGame.startLoop();
-
-    console.log(skinPlayer);
 
     const setPlayerDirection = () => {
       startGame.player.jump();
@@ -227,7 +226,7 @@ const main = () => {
 
     window.addEventListener("keydown", function(e) {
       const key = e.keyCode;
-      if (key === 32) {
+      if (key === 80) {
         if (startGame.pause === true && startGame.holdPause === false) {
           pause.classList.add("hide");
           startGame.holdPause = true;
@@ -246,9 +245,26 @@ const main = () => {
 
     window.addEventListener("keyup", function(e) {
       const key = e.keyCode;
-      if (key === 32) {
+      if (key === 80) {
         startGame.holdPause = false;
         score.holdPause = false;
+      }
+    });
+
+    window.addEventListener("keydown", function(e) {
+      const key = e.keyCode;
+      if (key === 32) {
+        if (spacebarHolder === false) {
+          setPlayerDirection();
+          spacebarHolder = true;
+        }
+      }
+    });
+
+    window.addEventListener("keyup", function(e) {
+      const key = e.keyCode;
+      if (key === 32) {
+        spacebarHolder = false;
       }
     });
   };
