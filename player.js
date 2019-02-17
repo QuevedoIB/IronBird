@@ -7,7 +7,7 @@ class Player {
     this.y = this.canvas.height / 2;
     this.context = this.canvas.getContext("2d");
     this.direction = 3.5;
-    this.skin = "yellow-bird-skin";
+    this.skin = playerSkin;
     this.src;
     this.frameCount = "mid-to-top";
     this.jumpSpeed = 35;

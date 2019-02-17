@@ -150,8 +150,10 @@ const main = () => {
 
     const score = new Score();
     const timer = () => {
-      score.currentTime += startGame.bonusIncrease();
-      bonusCollected += startGame.bonusIncrease;
+      let valueUpgrade = startGame.bonusIncrease();
+      score.currentTime += valueUpgrade;
+      bonusCollected += valueUpgrade;
+
       scoreBox.innerText = `Score: ${score.currentTime}`;
       scoreHolder = score.currentTime;
       if (startGame.over === true) {
@@ -173,6 +175,8 @@ const main = () => {
     const startGame = new Game(canvasElement, skinPlayer);
     startGame.gameOverCallback(buildGameOverScreen);
     startGame.startLoop();
+
+    console.log(skinPlayer);
 
     const setPlayerDirection = () => {
       startGame.player.jump();
@@ -260,7 +264,7 @@ const main = () => {
           <div class="container group">
             <img src="./sprites/shop-red-bird.png" />
             <p class="price-word">Price: 
-              <span id="red-bird" class="price-text">
+              <span id="red-bird-skin" class="price-text">
               2
               </span>
             </p>
@@ -272,7 +276,7 @@ const main = () => {
           <div class="container group">
             <img src="./sprites/shop-yellow-bird.png" />
             <p class="price-word">Price: 
-              <span id="yellow-bird" class="price-text">
+              <span id="yellow-bird-skin" class="price-text">
                 3
               </span>
             </p>
@@ -290,34 +294,38 @@ const main = () => {
 
     let elementDom;
 
-    function getDomElementById(id) {
-      console.log("hola");
+    const getDomElementById = id => () => {
       elementDom = document.getElementById(id);
       checkValue(elementDom, id);
-    }
+    };
 
     function checkValue(element, id) {
       let value = element.innerHTML;
       if (bonusCollected >= value) {
         bonusCollected -= value;
+        bonusLeft[0].innerHTML = `${bonusCollected} pts`;
         owned.push(id);
       } else {
         alert("Not enough pts, Go play poor!");
       }
     }
 
-    function checkOwned(skinId) {
+    const checkOwned = skinId => () => {
       if (owned.some(e => e === skinId)) {
         changePlayerSkin(skinId);
+      } else {
+        alert("You don't own that skin!");
       }
-    }
+    };
 
     function changePlayerSkin(skinId) {
+      console.log(skinId, skinPlayer);
       if (skinPlayer !== skinId) {
         skinPlayer = skinId;
       } else {
         skinPlayer = "blue-bird-skin";
       }
+      console.log(skinPlayer);
     }
 
     const bonusLeft = document.getElementsByClassName("score-text");
@@ -331,10 +339,11 @@ const main = () => {
     const equipYellow = document.getElementById("yellow-bird-equip");
 
     const backButton = document.getElementById("back-to-main");
-
-    purchaseRed.addEventListener("click", getDomElementById("red-bird"));
-    purchaseYellow.addEventListener("click", getDomElementById("yellow-bird"));
     backButton.addEventListener("click", buildSplash);
+
+    purchaseRed.addEventListener("click", getDomElementById("red-bird-skin"));
+    purchaseYellow.addEventListener("click", getDomElementById("yellow-bird-skin"));
+
     equipRed.addEventListener("click", checkOwned("red-bird-skin"));
     equipYellow.addEventListener("click", checkOwned("yellow-bird-skin"));
   };
