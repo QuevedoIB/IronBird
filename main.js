@@ -6,6 +6,7 @@ const main = () => {
   let skinPlayer = "blue-bird-skin";
   const owned = [];
   let spacebarHolder = false;
+  let musicHolder = true;
 
   const buildDom = html => {
     const body = document.querySelector("body");
@@ -27,9 +28,9 @@ const main = () => {
           <h4 class="instructions-title">LEADERBOARDS</h4>
           <p id="leader-boards-text"></p>
         </div>
-        <div class="commands">
+        <div class="commands container">
         <p>Left click/spacebar to JUMP</p>
-        <p>P to pause</p>
+        <p>P to pause/S to mute game</p>
         </div>
       </article>
       <article class="container instructions">
@@ -96,8 +97,7 @@ const main = () => {
   const buildGameOverScreen = () => {
     buildDom(`
     <section class="game-over-section container>
-      <audio autoplay loop  id="playAudio">
-      <source src="music-project-1/Undertale - Megalovania.mp3" allow="autoplay">
+      <audio id="playAudio" src="music-project-1/endmusic.mp3">
       </audio>
       <div class="container">
         <h1 class="title">You Died</h1>
@@ -133,6 +133,7 @@ const main = () => {
   const buildGameScreen = () => {
     buildDom(`
     <section class="game-section">
+      <img id="soundButton" src="./sprites/sound.png"/>
       <audio autoplay loop  id="playAudio">
       <source src="music-project-1/Undertale - Megalovania.mp3" allow="autoplay">
       </audio>
@@ -145,6 +146,30 @@ const main = () => {
     <canvas></canvas>
     </section>
     `);
+
+    const soundButton = document.getElementById("soundButton");
+    const audioGame = document.getElementById("playAudio");
+
+    const stopMusic = () => {
+      if (musicHolder === true) {
+        musicHolder = false;
+        audioGame.pause();
+      } else {
+        audioGame.play();
+        musicHolder = true;
+      }
+      music();
+    };
+
+    const music = () => {
+      if (musicHolder) {
+        soundButton.src = "./sprites/sound.png";
+      } else {
+        soundButton.src = "./sprites/no-sound.png";
+      }
+    };
+
+    soundButton.addEventListener("click", stopMusic);
 
     const pause = document.getElementById("pause-text");
     const scoreBox = document.getElementById("timer");
@@ -267,12 +292,22 @@ const main = () => {
         spacebarHolder = false;
       }
     });
+
+    window.addEventListener("keydown", function(e) {
+      const key = e.keyCode;
+      if (key === 83) {
+        stopMusic();
+      }
+    });
   };
 
   const buildShopScreen = () => {
     buildDom(`
       <section id="shop-section" class="container">
-        <div class="container">  
+      <audio autoplay loop  id="playAudio">
+      <source src="music-project-1/A_Cruel_Angel's_Thesis_-_Neon_Genesis_Evangelion_OP_[Piano_Tutorial]_(Synthesia).mp3" allow="autoplay">
+      </audio> 
+      <div class="container">  
           <h1 class="title">Shop</h1>
           <h2 class="score-text"></h2>
         </div>
@@ -335,13 +370,11 @@ const main = () => {
     };
 
     function changePlayerSkin(skinId) {
-      console.log(skinId, skinPlayer);
       if (skinPlayer !== skinId) {
         skinPlayer = skinId;
       } else {
         skinPlayer = "blue-bird-skin";
       }
-      console.log(skinPlayer);
     }
 
     const bonusLeft = document.getElementsByClassName("score-text");
