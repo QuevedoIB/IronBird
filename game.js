@@ -100,18 +100,18 @@ class Game {
       );
     }
 
-    // if (playerYPlus > this.base.y - this.base.size / 2) {
-    //   this.over = true;
-    //   this.onGameOver();
-    // }
-    // if (this.obstacles.some(e => e.x < playerXPlus && e.y > playerYSubstract)) {
-    //   this.over = true;
-    //   this.onGameOver();
-    // }
-    // if (this.obstacles.some(e => e.x < playerXPlus && e.y + e.spaceBetween < playerYPlus)) {
-    //   this.over = true;
-    //   this.onGameOver();
-    // }
+    if (playerYPlus > this.base.y - this.base.size / 2) {
+      this.over = true;
+      this.onGameOver();
+    }
+    if (this.obstacles.some(e => e.x < playerXPlus && e.y > playerYSubstract)) {
+      this.over = true;
+      this.onGameOver();
+    }
+    if (this.obstacles.some(e => e.x < playerXPlus && e.y + e.spaceBetween < playerYPlus)) {
+      this.over = true;
+      this.onGameOver();
+    }
   }
 
   gameOverCallback(callback) {

@@ -101,7 +101,10 @@ const main = () => {
       <div class="container">
         <h1 class="title">You Died</h1>
         <div class="score-text"></div>
-        <img class="start-button" src="./sprites/bigRetryButton.png">
+        <div class="row-container">
+          <img class="start-button" src="./sprites/bigRetryButton.png">
+          <img id="back-to-main" src="./sprites/bigMenuButton.png" />
+        </div>
         <div id="player-dead-name"></div>
       </div>
     </section>
@@ -119,6 +122,9 @@ const main = () => {
 
     const retryButton = document.getElementsByClassName("start-button");
     retryButton[0].addEventListener("click", buildGameScreen);
+
+    const backButton = document.getElementById("back-to-main");
+    backButton.addEventListener("click", buildSplash);
 
     scoreHolder = 0;
   };
@@ -276,9 +282,7 @@ const main = () => {
             </div>
           </div>
           <div>
-            <button id="back-to-main" type="button">
-              Back to Menu
-            </button>
+            <img id="back-to-main" src="./sprites/bigMenuButton.png" />
           </div>
         </div>
       </section>
