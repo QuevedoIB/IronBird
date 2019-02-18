@@ -329,52 +329,52 @@ const main = () => {
         <audio autoplay loop  id="playAudio">
           <source src="music-project-1/A_Cruel_Angel's_Thesis_-_Neon_Genesis_Evangelion_OP_[Piano_Tutorial]_(Synthesia).mp3" allow="autoplay">
         </audio> 
-        <div class="container">  
+        <div class="container-row">  
           <h1 class="title">Shop</h1>
           <h2 class="score-text"></h2>
         </div>
-        <div class="container shop">
-            <div class="container group">
+        <ul class="container-shop shop">
+            <li><div class="container group">
               <img src="./sprites/shop-red-bird.png" />
               <p class="price-word">Price: <span id="red-bird-skin" class="price-text">500</span></p>
               <div class="row-container">
                 <img id="red-bird-button" class="purchase-button" src="./sprites/buttonpurchase.png" />
                 <img id="red-bird-equip" class="equip-button" src="./sprites/equipbutton.png" />
               </div>
-            </div>
-            <div class="container group">
+            </div></li>
+            <li><div class="container group">
               <img src="./sprites/shop-yellow-bird.png" />
               <p class="price-word">Price: <span id="yellow-bird-skin" class="price-text">500</span></p>
               <div class="row-container">
                 <img id="yellow-bird-button" class="purchase-button" src="./sprites/buttonpurchase.png" />
                 <img id="yellow-bird-equip" class="equip-button" src="./sprites/equipbutton.png" />
               </div>
-            </div>
-            <div class="container group">
+            </div></li>
+            <li><div class="container group">
               <img src="./sprites/robot-up-skin.png" />
               <p class="price-word">Price: <span id="robot-skin" class="price-text">500</span></p>
               <div class="row-container">
                 <img id="robot-skin-button" class="purchase-button" src="./sprites/buttonpurchase.png" />
                 <img id="robot-skin-equip" class="equip-button" src="./sprites/equipbutton.png" />
               </div>
-            </div>
-            <div class="container group">
+            </div></li>
+            <li><div class="container group">
               <img src="./sprites/dog-skin-up.png" />
               <p class="price-word">Price: <span id="dog-skin" class="price-text">5</span></p>
               <div class="row-container">
                 <img id="dog-skin-button" class="purchase-button" src="./sprites/buttonpurchase.png" />
                 <img id="dog-skin-equip" class="equip-button" src="./sprites/equipbutton.png" />
-              </div>
-            <div class="container group">
+              </div></li>
+            <li><div class="container group">
               <img src="./sprites/bin-skin-bonus.png" />
               <p class="price-word">Price: <span id="bin-skin" class="price-text">5</span></p>
               <div class="row-container">
                 <img id="bin-skin-button" class="purchase-button" src="./sprites/buttonpurchase.png" />
                 <img id="bin-skin-equip" class="equip-button" src="./sprites/equipbutton.png" />
               </div>
-            </div>
-          </div>
-          <div>
+            </div></li>
+          </ul>
+          <div class="back-menu">
             <img id="back-to-main" src="./sprites/bigMenuButton.png" />
           </div>
       </section>

@@ -228,8 +228,13 @@ h4 {
 
 .shop {
   overflow: scroll;
-  height: 400px;
-  padding-top: 260px;
+  list-style-type: none;
+}
+
+.container-shop {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .group {
@@ -267,4 +272,17 @@ h4 {
   left: 5%;
   width: 90%;
   text-align: center;
+}
+
+.back-menu {
+  position: absolute;
+  bottom: 5px;
+}
+
+.container-row {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin-bottom: 10%;
+  padding-bottom: 10%;
 }
