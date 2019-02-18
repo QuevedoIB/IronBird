@@ -144,7 +144,7 @@ const main = () => {
     <div id="pause-text" class="container hide"><h1 class="pause-title">Paused</h1>
     <p>Press P to resume</p>
     </div>
-    <div id="click-to-start" class="container">
+    <div id="click-to-start">
       <h1 class="pause-title">CLICK or press SPACEBAR to START</h1>
     </div>
     <canvas></canvas>
@@ -211,8 +211,9 @@ const main = () => {
       startText.classList.add("hide");
       startGame.pause = false;
       score.pause = false;
-      if (!score.pause) {
-        pauseHolder = false;
+      pauseHolder = false;
+      if (!pause.classList.contains("hide")) {
+        pause.classList.add("hide");
       }
       startGame.player.jump();
     };
@@ -224,7 +225,6 @@ const main = () => {
 
     function animationOpacity() {
       if (pauseHolder === false) {
-        console.log("hola");
         if (number == 0 && nightCount < 4) {
           startGame.night = true;
           startGame.player.night = true;
