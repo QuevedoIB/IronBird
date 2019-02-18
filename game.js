@@ -95,6 +95,7 @@ class Game {
       )
     ) {
       this.bonusStatus = true;
+      console.log(this.bonus, this.player);
       this.bonus = this.bonus.filter(
         e =>
           playerXPlus < e.x - e.size / 2 &&

@@ -36,7 +36,7 @@ body {
   margin: 0 auto;
 }
 
-@media (min-width: 1281px) {
+@media (min-width: 961px) {
   html {
     height: 512px;
     width: 288px;
@@ -50,20 +50,14 @@ body {
     z-index: -1;
     width: 100%;
   }
-}
 
-@media (min-width: 1025px) and (max-width: 1280px) {
-  html {
+  body {
     height: 512px;
     width: 288px;
   }
-  #night-background {
-    z-index: -1;
-    width: 100%;
-  }
-  #day-background {
-    opacity: 1;
-    z-index: -1;
+
+  canvas {
+    height: 100%;
     width: 100%;
   }
 }
@@ -100,7 +94,6 @@ section {
   background-image: url("./sprites/background-day-start.png");
   background-repeat: no-repeat;
   background-size: cover;
-  padding-top: 53px;
 }
 
 .splash-section article {
@@ -141,14 +134,15 @@ button {
   background-image: url("./sprites//background-night-end.png");
   background-repeat: no-repeat;
   background-size: cover;
+  width: 100%;
 }
 
 #player-dead-name {
+  position: absolute;
+  bottom: 30%;
   color: #212121;
   font-family: Nokia;
   font-size: 16px;
-  margin-top: 130px;
-  justify-self: center;
 }
 
 #timer {
@@ -234,8 +228,8 @@ h4 {
 
 .shop {
   overflow: scroll;
-  padding-top: 260px;
   height: 400px;
+  padding-top: 260px;
 }
 
 .group {
