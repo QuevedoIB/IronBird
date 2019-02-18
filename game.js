@@ -1,6 +1,6 @@
 "use strict";
 class Game {
-  constructor(canvas, skinPlayer) {
+  constructor(canvas, skinPlayer, bonusSkin) {
     this.canvas = canvas;
     this.context = canvas.getContext("2d");
     this.player;
@@ -14,6 +14,7 @@ class Game {
     this.holdPause = false;
     this.night = false;
     this.playerSkin = skinPlayer;
+    this.bonusSkin = bonusSkin;
   }
 
   startLoop() {
@@ -28,9 +29,9 @@ class Game {
         this.obstacles.push(new Obstacle(this.canvas, this.night));
 
         if (random === 0) {
-          this.bonus.push(new Bonus(this.canvas, 50));
+          this.bonus.push(new Bonus(this.canvas, 50, this.bonusSkin));
         } else {
-          this.bonus.push(new Bonus(this.canvas, 300));
+          this.bonus.push(new Bonus(this.canvas, 300, this.bonusSkin));
         }
       }
     };
