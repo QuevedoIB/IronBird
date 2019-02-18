@@ -23,8 +23,10 @@ const main = () => {
       </audio>
       <article class="container buttons-start">
         <input type="text" id="name-text" placeholder=" Insert Name">
-        <img class="start-button" src="./sprites/bigButtonStart.png">
-        <button id="shop-button" class="start-button">Shop</button>
+        <div class="row-container">
+          <img class="start-button" src="./sprites/yellowbigstart.png">
+          <img id="shop-button" class="start-button" src="./sprites/yellowbigshop.png">
+        </div>
       </article>
       <article class="container instructions">
         <h4 class="instructions-title">Instructions</h4>
