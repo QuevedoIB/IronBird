@@ -28,11 +28,48 @@ body {
 }
 
 body {
-  width: 288px;
-  height: 511px;
+  width: 100%;
+  height: 100vh;
   font-family: Helvetica, Arial, sans-serif;
   font-size: 16px;
   line-height: 147%;
+  margin: 0 auto;
+}
+
+@media (min-width: 1281px) {
+  html {
+    height: 512px;
+    width: 288px;
+  }
+  #night-background {
+    z-index: -1;
+    width: 100%;
+  }
+  #day-background {
+    opacity: 1;
+    z-index: -1;
+    width: 100%;
+  }
+}
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+  html {
+    height: 512px;
+    width: 288px;
+  }
+  #night-background {
+    z-index: -1;
+    width: 100%;
+  }
+  #day-background {
+    opacity: 1;
+    z-index: -1;
+    width: 100%;
+  }
+}
+
+p {
+  margin: 0;
 }
 
 .container {
@@ -62,6 +99,13 @@ section {
 .splash-section {
   background-image: url("./sprites/background-day-start.png");
   background-repeat: no-repeat;
+  background-size: cover;
+  padding-top: 53px;
+}
+
+.splash-section article {
+  margin-bottom: 20px;
+  line-height: 1;
 }
 
 .start-button {
@@ -79,11 +123,13 @@ button {
   opacity: 1;
   position: absolute;
   z-index: -1;
+  width: 100%;
 }
 
 #night-background {
   position: absolute;
   z-index: -1;
+  width: 100%;
 }
 
 .night-game-section {
@@ -94,31 +140,26 @@ button {
 .game-over-section {
   background-image: url("./sprites//background-night-end.png");
   background-repeat: no-repeat;
+  background-size: cover;
 }
 
 #player-dead-name {
   color: #212121;
   font-family: Nokia;
   font-size: 16px;
-  margin-top: 110px;
+  margin-top: 130px;
   justify-self: center;
 }
 
 #timer {
   font-family: Nokia;
-  position: absolute;
-  margin-top: 10px;
-  margin-left: 10px;
-}
-
-.instructions {
   position: fixed;
-  bottom: 105px;
-  font-size: 16px;
+  top: 10px;
+  left: 10px;
 }
 
 h4 {
-  margin: 0;
+  margin: 0 0 20px;
   font-family: Nokia;
   text-decoration: underline;
 }
@@ -128,6 +169,10 @@ h4 {
   list-style-type: none;
   margin: 0;
   padding: 0;
+}
+
+.splash-section .leader-boards {
+  margin: 0;
 }
 
 #pause-text {
@@ -161,7 +206,6 @@ h4 {
 .commands {
   font-family: Pixelade;
   font-size: 18px;
-  line-height: 0.5;
 }
 
 #name-text {
@@ -184,10 +228,17 @@ h4 {
 #shop-section {
   justify-content: space-between;
   background-image: url("./sprites/background-day.png");
+  background-size: cover;
+}
+
+.shop {
+  overflow: scroll;
+  padding-top: 0px;
+  height: 400px;
 }
 
 .group {
-  margin: 15px 0;
+  margin: 80px 0;
 }
 
 .price-text,
@@ -209,11 +260,16 @@ h4 {
   align-items: center;
 }
 
-#soundButton {
+#sound-button {
   position: fixed;
-  left: 240px;
+  right: 10px;
+  top: 10px;
 }
 
 #click-to-start {
-  margin: auto;
+  position: absolute;
+  top: 50%;
+  left: 5%;
+  width: 90%;
+  text-align: center;
 }

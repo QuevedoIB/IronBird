@@ -19,28 +19,29 @@ const main = () => {
     buildDom(`
     <section class="container splash-section">
       <audio autoplay loop  id="playAudio">
-      <source src="music-project-1/intromusic.mp3">
+        <source src="music-project-1/intromusic.mp3">
       </audio>
       <article class="container buttons-start">
         <input type="text" id="name-text" placeholder=" Insert Name">
         <img class="start-button" src="./sprites/bigButtonStart.png">
         <button id="shop-button" class="start-button">Shop</button>
-        <div class="leaderBoards">
-          <h4 class="instructions-title">LEADERBOARDS</h4>
-          <p id="leader-boards-text"></p>
-        </div>
-        <div class="commands container">
-        <p>Left click/spacebar to JUMP</p>
-        <p>P to pause/S to mute game</p>
-        </div>
       </article>
       <article class="container instructions">
-      <h4 class="instructions-title">Instructions</h4>
+        <h4 class="instructions-title">Instructions</h4>
+        <div class="commands container">
+          <p>Left click/spacebar to JUMP</p>
+          <p>P to pause/S to mute game</p>
+        </div>
         <ul class="instruction-list container">
-        <li> Drink Coffee </li>
-        <li> Dodge obstacles </li>
-        <li> Stay focused </li>
-        </article>
+          <li> Drink Coffee </li>
+          <li> Dodge obstacles </li>
+          <li> Stay focused </li>
+        </ul>
+      </article>
+      <article class="leader-boards">
+        <h4 class="instructions-title">LEADERBOARDS</h4>
+        <p id="leader-boards-text"></p>
+      </article>
     </section>
     `);
 
@@ -136,25 +137,25 @@ const main = () => {
   const buildGameScreen = () => {
     buildDom(`
     <section class="game-section">
-      <img id="soundButton" src="./sprites/sound.png"/>
-      <audio autoplay loop  id="playAudio">
-      <source src="music-project-1/Undertale - Megalovania.mp3" allow="autoplay">
+      <img id="sound-button" src="./sprites/sound.png"/>
+      <audio autoplay loop  id="play-audio">
+        <source src="music-project-1/Undertale - Megalovania.mp3" allow="autoplay">
       </audio>
       <img src="./sprites/background-night.png" id="night-background">
       <img src="./sprites/background-day.png" id="day-background"> 
-    <div id="timer"></div>  
-    <div id="pause-text" class="container hide"><h1 class="pause-title">Paused</h1>
-    <p>Press P to resume</p>
-    </div>
-    <div id="click-to-start">
-      <h1 class="pause-title">CLICK or press SPACEBAR to START</h1>
-    </div>
-    <canvas></canvas>
+      <div id="timer"></div>  
+      <div id="pause-text" class="container hide"><h1 class="pause-title">Paused</h1>
+        <p>Press P to resume</p>
+      </div>
+      <div id="click-to-start">
+        <h1 class="pause-title">CLICK or press SPACEBAR to START</h1>
+      </div>
+      <canvas></canvas>
     </section>
     `);
 
-    const soundButton = document.getElementById("soundButton");
-    const audioGame = document.getElementById("playAudio");
+    const soundButton = document.getElementById("sound-button");
+    const audioGame = document.getElementById("play-audio");
     const startText = document.getElementById("click-to-start");
 
     const stopMusic = () => {
@@ -322,21 +323,17 @@ const main = () => {
   const buildShopScreen = () => {
     buildDom(`
       <section id="shop-section" class="container">
-      <audio autoplay loop  id="playAudio">
-      <source src="music-project-1/A_Cruel_Angel's_Thesis_-_Neon_Genesis_Evangelion_OP_[Piano_Tutorial]_(Synthesia).mp3" allow="autoplay">
-      </audio> 
-      <div class="container">  
+        <audio autoplay loop  id="playAudio">
+          <source src="music-project-1/A_Cruel_Angel's_Thesis_-_Neon_Genesis_Evangelion_OP_[Piano_Tutorial]_(Synthesia).mp3" allow="autoplay">
+        </audio> 
+        <div class="container">  
           <h1 class="title">Shop</h1>
           <h2 class="score-text"></h2>
         </div>
-        <div class="container">
+        <div class="container shop">
           <div class="container group">
             <img src="./sprites/shop-red-bird.png" />
-            <p class="price-word">Price: 
-              <span id="red-bird-skin" class="price-text">
-              500
-              </span>
-            </p>
+            <p class="price-word">Price: <span id="red-bird-skin" class="price-text">500</span></p>
             <div class="row-container">
               <img id="red-bird-button" class="purchase-button" src="./sprites/buttonpurchase.png" />
               <img id="red-bird-equip" class="equip-button" src="./sprites/equipbutton.png" />
@@ -344,20 +341,16 @@ const main = () => {
           </div>
           <div class="container group">
             <img src="./sprites/shop-yellow-bird.png" />
-            <p class="price-word">Price: 
-              <span id="yellow-bird-skin" class="price-text">
-                500
-              </span>
-            </p>
+            <p class="price-word">Price: <span id="yellow-bird-skin" class="price-text">500</span></p>
             <div class="row-container">
               <img id="yellow-bird-button" class="purchase-button" src="./sprites/buttonpurchase.png" />
               <img id="yellow-bird-equip" class="equip-button" src="./sprites/equipbutton.png" />
             </div>
           </div>
+          </div>
           <div>
             <img id="back-to-main" src="./sprites/bigMenuButton.png" />
           </div>
-        </div>
       </section>
     `);
 
