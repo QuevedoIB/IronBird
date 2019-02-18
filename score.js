@@ -3,7 +3,7 @@ class Score {
   constructor(canvas) {
     this.currentTime = 0;
     this.intervalId = null;
-    this.pause = false;
+    this.pause = true;
     this.holdPause = false;
   }
   startClick() {

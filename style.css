@@ -140,7 +140,7 @@ h4 {
   font-family: Pixelade;
 }
 
-#pause-title {
+.pause-title {
   font-family: Nokia;
 }
 
@@ -212,4 +212,8 @@ h4 {
 #soundButton {
   position: fixed;
   left: 240px;
+}
+
+#click-to-start {
+  margin: auto;
 }

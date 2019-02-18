@@ -7,6 +7,7 @@ const main = () => {
   const owned = [];
   let spacebarHolder = false;
   let musicHolder = true;
+  let pauseHolder = true;
 
   const buildDom = html => {
     const body = document.querySelector("body");
@@ -140,8 +141,11 @@ const main = () => {
       <img src="./sprites/background-night.png" id="night-background">
       <img src="./sprites/background-day.png" id="day-background"> 
     <div id="timer"></div>  
-    <div id="pause-text" class="container hide"><h1 id="pause-title">Paused</h1>
+    <div id="pause-text" class="container hide"><h1 class="pause-title">Paused</h1>
     <p>Press P to resume</p>
+    </div>
+    <div id="click-to-start" class="container">
+      <h1 class="pause-title">CLICK or press SPACEBAR to START</h1>
     </div>
     <canvas></canvas>
     </section>
@@ -149,6 +153,7 @@ const main = () => {
 
     const soundButton = document.getElementById("soundButton");
     const audioGame = document.getElementById("playAudio");
+    const startText = document.getElementById("click-to-start");
 
     const stopMusic = () => {
       if (musicHolder === true) {
@@ -203,6 +208,12 @@ const main = () => {
     startGame.startLoop();
 
     const setPlayerDirection = () => {
+      startText.classList.add("hide");
+      startGame.pause = false;
+      score.pause = false;
+      if (!score.pause) {
+        pauseHolder = false;
+      }
       startGame.player.jump();
     };
 
@@ -212,35 +223,38 @@ const main = () => {
     let dayCount = 0;
 
     function animationOpacity() {
-      if (number == 0 && nightCount < 4) {
-        startGame.night = true;
-        startGame.player.night = true;
+      if (pauseHolder === false) {
+        console.log("hola");
+        if (number == 0 && nightCount < 4) {
+          startGame.night = true;
+          startGame.player.night = true;
 
-        nightCount++;
-        imgDay.style.opacity = number;
-      }
+          nightCount++;
+          imgDay.style.opacity = number;
+        }
 
-      if (number === 1 && nightCount === 4) {
-        startGame.night = false;
-        startGame.player.night = false;
+        if (number === 1 && nightCount === 4) {
+          startGame.night = false;
+          startGame.player.night = false;
 
-        nightCount = 0;
-        imgDay.style.opacity = number;
-      }
+          nightCount = 0;
+          imgDay.style.opacity = number;
+        }
 
-      if (number === 1 && dayCount < 5) {
-        dayCount++;
-      }
+        if (number === 1 && dayCount < 5) {
+          dayCount++;
+        }
 
-      if (number > 0 && nightCount === 0) {
-        number -= 0.25;
-        imgDay.style.opacity = number;
-      }
+        if (number > 0 && nightCount === 0) {
+          number -= 0.25;
+          imgDay.style.opacity = number;
+        }
 
-      if (number < 1 && nightCount === 4) {
-        number += 0.25;
-        imgDay.style.opacity = number;
-        dayCount = 0;
+        if (number < 1 && nightCount === 4) {
+          number += 0.25;
+          imgDay.style.opacity = number;
+          dayCount = 0;
+        }
       }
     }
 
@@ -258,12 +272,14 @@ const main = () => {
           score.holdPause = true;
           startGame.pause = false;
           score.pause = false;
+          pauseHolder = false;
         } else if (startGame.pause === false && startGame.holdPause === false) {
           pause.classList.remove("hide");
           score.holdPause = true;
           startGame.holdPause = true;
           startGame.pause = true;
           score.pause = true;
+          pauseHolder = true;
         }
       }
     });

@@ -10,7 +10,7 @@ class Game {
     this.bonusStatus;
     this.over = false;
     this.animation;
-    this.pause = false;
+    this.pause = true;
     this.holdPause = false;
     this.night = false;
     this.playerSkin = skinPlayer;
@@ -57,9 +57,11 @@ class Game {
   }
 
   updateCanvas() {
-    this.player.update();
-    this.obstacles.map(e => e.update());
-    this.bonus.map(e => e.update());
+    if (!this.pause) {
+      this.player.update();
+      this.obstacles.map(e => e.update());
+      this.bonus.map(e => e.update());
+    }
   }
 
   drawCanvas() {
