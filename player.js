@@ -86,6 +86,38 @@ class Player {
         return (this.src = "./sprites/yellowbird-midflap.png");
       }
     }
+
+    if (this.skin === "robot-skin") {
+      if (value === "mid-to-top") {
+        this.frameCount = "top-to-mid";
+        return (this.src = "./sprites/robot-up-skin.png");
+      } else if (value === "top-to-mid") {
+        this.frameCount = "mid-to-bot";
+        return (this.src = "./sprites/robot-mid-skin.png");
+      } else if (value === "mid-to-bot") {
+        this.frameCount = "bot-to-mid";
+        return (this.src = "./sprites/robot-down-skin.png");
+      } else if (value === "bot-to-mid") {
+        this.frameCount = "mid-to-top";
+        return (this.src = "./sprites/robot-mid-skin.png");
+      }
+    }
+
+    if (this.skin === "dog-skin") {
+      if (value === "mid-to-top") {
+        this.frameCount = "top-to-mid";
+        return (this.src = "./sprites/dog-skin-up.png");
+      } else if (value === "top-to-mid") {
+        this.frameCount = "mid-to-bot";
+        return (this.src = "./sprites/dog-skin-mid.png");
+      } else if (value === "mid-to-bot") {
+        this.frameCount = "bot-to-mid";
+        return (this.src = "./sprites/dog-skin-bot.png");
+      } else if (value === "bot-to-mid") {
+        this.frameCount = "mid-to-top";
+        return (this.src = "./sprites/dog-skin-mid.png");
+      }
+    }
   }
 
   checkScreen() {
@@ -101,6 +133,10 @@ class Player {
       this.src = "./sprites/redbird-midflap.png";
     } else if (this.skin === "yellow-bird-skin") {
       this.src = "./sprites/yellowbird-midflap.png";
+    } else if (this.skin === "robot-skin") {
+      this.src = "./sprites/robot-mid-skin.png";
+    } else if (this.skin === "dog-skin") {
+      this.src = "./sprites/dog-skin-mid.png";
     }
   }
 }

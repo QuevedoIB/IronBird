@@ -349,6 +349,22 @@ const main = () => {
               <img id="yellow-bird-equip" class="equip-button" src="./sprites/equipbutton.png" />
             </div>
           </div>
+          <div class="container group">
+            <img src="./sprites/robot-up-skin.png" />
+            <p class="price-word">Price: <span id="robot-skin" class="price-text">500</span></p>
+            <div class="row-container">
+              <img id="robot-skin-button" class="purchase-button" src="./sprites/buttonpurchase.png" />
+              <img id="robot-skin-equip" class="equip-button" src="./sprites/equipbutton.png" />
+            </div>
+          </div>
+          <div class="container group">
+            <img src="./sprites/dog-skin-up.png" />
+            <p class="price-word">Price: <span id="dog-skin" class="price-text">500</span></p>
+            <div class="row-container">
+              <img id="dog-skin-button" class="purchase-button" src="./sprites/buttonpurchase.png" />
+              <img id="dog-skin-equip" class="equip-button" src="./sprites/equipbutton.png" />
+            </div>
+          </div>
           </div>
           <div>
             <img id="back-to-main" src="./sprites/bigMenuButton.png" />
@@ -400,14 +416,26 @@ const main = () => {
     const purchaseYellow = document.getElementById("yellow-bird-button");
     const equipYellow = document.getElementById("yellow-bird-equip");
 
+    const purchaseRobot = document.getElementById("robot-skin-button");
+    const equipRobot = document.getElementById("robot-skin-equip");
+
+    const purchaseDog = document.getElementById("dog-skin-button");
+    const equipDog = document.getElementById("dog-skin-equip");
+
     const backButton = document.getElementById("back-to-main");
     backButton.addEventListener("click", buildSplash);
 
     purchaseRed.addEventListener("click", getDomElementById("red-bird-skin"));
-    purchaseYellow.addEventListener("click", getDomElementById("yellow-bird-skin"));
-
     equipRed.addEventListener("click", checkOwned("red-bird-skin"));
+
+    purchaseYellow.addEventListener("click", getDomElementById("yellow-bird-skin"));
     equipYellow.addEventListener("click", checkOwned("yellow-bird-skin"));
+
+    purchaseRobot.addEventListener("click", getDomElementById("robot-skin"));
+    equipRobot.addEventListener("click", checkOwned("robot-skin"));
+
+    purchaseDog.addEventListener("click", getDomElementById("dog-skin"));
+    equipDog.addEventListener("click", checkOwned("dog-skin"));
   };
 
   buildSplash();
