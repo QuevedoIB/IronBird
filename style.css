@@ -222,7 +222,7 @@ h4 {
 
 #shop-section {
   justify-content: space-between;
-  background-image: url("./sprites/background-day.png");
+  background-image: url("./sprites/shop-background.png");
   background-size: cover;
 }
 
@@ -263,6 +263,12 @@ h4 {
 #sound-button {
   position: fixed;
   right: 10px;
+  top: 10px;
+}
+
+#pause-button {
+  position: fixed;
+  right: 50px;
   top: 10px;
 }
 

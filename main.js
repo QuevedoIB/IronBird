@@ -140,6 +140,7 @@ const main = () => {
   const buildGameScreen = () => {
     buildDom(`
     <section class="game-section">
+      <img id="pause-button" src="./sprites/pause-button.png"/>
       <img id="sound-button" src="./sprites/sound.png"/>
       <audio autoplay loop  id="play-audio">
         <source src="music-project-1/Undertale - Megalovania.mp3" allow="autoplay">
@@ -160,6 +161,7 @@ const main = () => {
     const soundButton = document.getElementById("sound-button");
     const audioGame = document.getElementById("play-audio");
     const startText = document.getElementById("click-to-start");
+    const pauseButton = document.getElementById("pause-button");
 
     const stopMusic = () => {
       if (musicHolder === true) {
