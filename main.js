@@ -112,6 +112,8 @@ const main = () => {
     </section>
     `);
 
+    pauseHolder = true;
+
     const graveyardName = document.getElementById("player-dead-name");
     graveyardName.innerHTML = `${nameHolder}`;
 
