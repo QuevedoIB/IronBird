@@ -212,6 +212,29 @@ h4 {
 #name-text {
   height: 30px;
   margin-bottom: 20px;
+  box-sizing: border-box;
+  border: 2px dotted #353934;
+  background-color: rgb(152, 217, 233);
+}
+
+#name-text:focus {
+  border: 3px solid rgb(37, 36, 36);
+}
+
+::-webkit-input-placeholder {
+  text-align: center;
+}
+
+:-moz-placeholder {
+  text-align: center;
+}
+
+::-moz-placeholder {
+  text-align: center;
+}
+
+:-ms-input-placeholder {
+  text-align: center;
 }
 
 .title {

@@ -19,7 +19,7 @@ const main = () => {
     buildDom(`
     <section class="container splash-section">
       <audio autoplay loop  id="playAudio">
-        <source src="music-project-1/intromusic.mp3">
+        <source src="music-project-1/The best 8-bit music top 100 19 Mega Man 3  NES -- Title.mp3">
       </audio>
       <article class="container buttons-start">
         <input type="text" id="name-text" placeholder=" Insert Name">
@@ -151,7 +151,7 @@ const main = () => {
       <img id="pause-button" src="./sprites/pause-button.png"/>
       <img id="sound-button" src="./sprites/sound.png"/>
       <audio autoplay loop  id="play-audio">
-        <source src="music-project-1/Undertale - Megalovania.mp3" allow="autoplay">
+        <source src="music-project-1/Gourmet Race 8-BIT - Kirby.mp3" allow="autoplay">
       </audio>
       <img src="./sprites/background-night.png" id="night-background">
       <img src="./sprites/background-day.png" id="day-background"> 
