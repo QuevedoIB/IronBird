@@ -118,6 +118,7 @@ const main = () => {
     `);
 
     pauseHolder = true;
+    spacebarHolder = false;
 
     const graveyardName = document.getElementById("player-dead-name");
     graveyardName.innerHTML = `${nameHolder}`;
@@ -336,6 +337,7 @@ const main = () => {
     window.addEventListener("keydown", function(e) {
       const key = e.keyCode;
       if (key === 32) {
+        console.log(spacebarHolder);
         if (spacebarHolder === false) {
           setPlayerDirection();
           spacebarHolder = true;

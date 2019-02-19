@@ -174,9 +174,9 @@ h4 {
 }
 
 #pause-text {
-  position: fixed;
-  top: 220px;
-  left: 70px;
+  position: absolute;
+  top: 50%;
+  left: 30%;
 }
 
 .pause-text p {
