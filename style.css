@@ -64,11 +64,6 @@ body {
   .game-section {
     position: relative;
   }
-
-  #pause-button,
-  #sound-button {
-    position: absolute;
-  }
 }
 
 p {
@@ -270,13 +265,13 @@ h4 {
 }
 
 #sound-button {
-  position: fixed;
+  position: absolute;
   right: 10px;
   top: 10px;
 }
 
 #pause-button {
-  position: fixed;
+  position: absolute;
   right: 50px;
   top: 10px;
 }
