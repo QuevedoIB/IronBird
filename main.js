@@ -102,7 +102,7 @@ const main = () => {
     buildDom(`
     <section class="game-over-section container>
       <audio autoplay loop  id="play-audio">
-        <source src="./music-project-1/endmusic.mp3" allow="autoplay">
+        <source src="./music-project-1/Elevator Music.mp3" allow="autoplay">
       </audio>
       <div class="container">
         <h1 class="title">You Died</h1>
@@ -376,7 +376,7 @@ const main = () => {
     buildDom(`
       <section id="shop-section" class="container">
         <audio autoplay loop  id="playAudio">
-          <source src="music-project-1/A_Cruel_Angel's_Thesis_-_Neon_Genesis_Evangelion_OP_[Piano_Tutorial]_(Synthesia).mp3" allow="autoplay">
+          <source src="music-project-1/Elevator Music.mp3" allow="autoplay">
         </audio> 
         <div class="container-row">  
           <h1 class="title">Shop</h1>
