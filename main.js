@@ -9,6 +9,7 @@ const main = () => {
   let spacebarHolder = false;
   let musicHolder = true;
   let pauseHolder = true;
+  let pauseButtonPressed = false;
 
   const buildDom = html => {
     const body = document.querySelector("body");
@@ -216,14 +217,16 @@ const main = () => {
     startGame.startLoop();
 
     const setPlayerDirection = () => {
-      startText.classList.add("hide");
-      startGame.pause = false;
-      score.pause = false;
-      pauseHolder = false;
-      if (!pause.classList.contains("hide")) {
-        pause.classList.add("hide");
+      if (!pauseButtonPressed) {
+        startText.classList.add("hide");
+        startGame.pause = false;
+        score.pause = false;
+        pauseHolder = false;
+        if (!pause.classList.contains("hide")) {
+          pause.classList.add("hide");
+        }
+        startGame.player.jump();
       }
-      startGame.player.jump();
     };
 
     let imgDay = document.getElementById("day-background");
@@ -270,6 +273,36 @@ const main = () => {
     window.onload = animationTimer;
 
     section.addEventListener("click", setPlayerDirection);
+
+    const pauseByClick = () => {
+      if (startGame.pause === true && startGame.holdPause === false) {
+        pause.classList.add("hide");
+        startGame.holdPause = true;
+        score.holdPause = true;
+        startGame.pause = false;
+        score.pause = false;
+        pauseHolder = false;
+        pauseButtonPressed = false;
+      } else if (startGame.pause === false && startGame.holdPause === false) {
+        pause.classList.remove("hide");
+        score.holdPause = true;
+        startGame.holdPause = true;
+        startGame.pause = true;
+        score.pause = true;
+        pauseHolder = true;
+        pauseButtonPressed = true;
+      }
+      console.log(startGame.holdPause);
+      removePauseHolder();
+      console.log(startGame.holdPause);
+    };
+
+    const removePauseHolder = () => {
+      startGame.holdPause = false;
+      score.holdPause = false;
+    };
+
+    pauseButton.addEventListener("click", pauseByClick);
 
     window.addEventListener("keydown", function(e) {
       const key = e.keyCode;
