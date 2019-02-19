@@ -118,6 +118,22 @@ class Player {
         return (this.src = "./sprites/dog-skin-mid.png");
       }
     }
+
+    if (this.skin === "roto2-skin") {
+      if (value === "mid-to-top") {
+        this.frameCount = "top-to-mid";
+        return (this.src = "./sprites/roto2-skin-top.png");
+      } else if (value === "top-to-mid") {
+        this.frameCount = "mid-to-bot";
+        return (this.src = "./sprites/roto2-skin-mid.png");
+      } else if (value === "mid-to-bot") {
+        this.frameCount = "bot-to-mid";
+        return (this.src = "./sprites/roto2-skin-bot.png");
+      } else if (value === "bot-to-mid") {
+        this.frameCount = "mid-to-top";
+        return (this.src = "./sprites/roto2-skin-mid.png");
+      }
+    }
   }
 
   checkScreen() {
@@ -137,6 +153,8 @@ class Player {
       this.src = "./sprites/robot-mid-skin.png";
     } else if (this.skin === "dog-skin") {
       this.src = "./sprites/dog-skin-mid.png";
+    } else if (this.skin === "roto2-skin") {
+      this.src = "./sprites/roto2-skin-mid.png";
     }
   }
 }

@@ -410,6 +410,14 @@ const main = () => {
                 <img id="bin-skin-equip" class="equip-button" src="./sprites/equipbutton.png" />
               </div>
             </div></li>
+            <li><div class="container group">
+              <img src="./sprites/roto2-skin-bot.png" />
+              <p class="price-word">Price: <span id="roto2-skin" class="price-text">500</span></p>
+              <div class="row-container">
+                <img id="roto2-skin-button" class="purchase-button" src="./sprites/buttonpurchase.png" />
+                <img id="roto2-skin-equip" class="equip-button" src="./sprites/equipbutton.png" />
+              </div>
+            </div></li>
           </ul>
           <div class="back-menu">
             <img id="back-to-main" src="./sprites/bigMenuButton.png" />
@@ -486,6 +494,9 @@ const main = () => {
     const purchaseBin = document.getElementById("bin-skin-button");
     const equipBin = document.getElementById("bin-skin-equip");
 
+    const purchaseRoto2 = document.getElementById("roto2-skin-button");
+    const equipRoto2 = document.getElementById("roto2-skin-equip");
+
     const backButton = document.getElementById("back-to-main");
     backButton.addEventListener("click", buildSplash);
 
@@ -503,6 +514,9 @@ const main = () => {
 
     purchaseBin.addEventListener("click", getDomElementById("bin-skin"));
     equipBin.addEventListener("click", checkOwnedBonus("bin-skin"));
+
+    purchaseRoto2.addEventListener("click", getDomElementById("roto2-skin"));
+    equipRoto2.addEventListener("click", checkOwned("roto2-skin"));
   };
 
   buildSplash();
