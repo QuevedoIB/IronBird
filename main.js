@@ -142,6 +142,14 @@ const main = () => {
   const buildGameScreen = () => {
     buildDom(`
     <section class="game-section">
+      <div class="clouds">
+        <div class="x3">
+          <div class="cloud"></div>
+        </div>
+        <div class="x2">
+          <div class="cloud"></div>
+        </div>
+      </div>
       <img id="pause-button" src="./sprites/pause-button.png"/>
       <img id="sound-button" src="./sprites/sound.png"/>
       <audio autoplay loop  id="play-audio">
@@ -159,6 +167,8 @@ const main = () => {
       <canvas></canvas>
     </section>
     `);
+
+    spacebarHolder = false;
 
     const soundButton = document.getElementById("sound-button");
     const audioGame = document.getElementById("play-audio");
