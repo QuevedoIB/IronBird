@@ -101,7 +101,8 @@ const main = () => {
   const buildGameOverScreen = () => {
     buildDom(`
     <section class="game-over-section container>
-      <audio id="playAudio" src="music-project-1/endmusic.mp3">
+      <audio autoplay loop  id="play-audio">
+        <source src="./music-project-1/endmusic.mp3" allow="autoplay">
       </audio>
       <div class="container">
         <h1 class="title">You Died</h1>
