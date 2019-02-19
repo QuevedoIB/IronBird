@@ -85,25 +85,36 @@ class Game {
     const playerXSubstract = this.player.x - this.player.size / 2;
     this.player.checkScreen();
 
-    if (
-      this.bonus.some(
-        e =>
-          e.x < playerXPlus && //- e.size / 2
-          e.y + e.size / 2 > playerYSubstract &&
-          e.y < playerYPlus && //- e.size / 2
-          e.x + e.size / 2 > playerXSubstract
-      )
-    ) {
-      this.bonusStatus = true;
+    this.bonus.forEach((e, i) => {
+      if (
+        e.x < playerXPlus && //- e.size / 2
+        e.y + e.size / 2 > playerYSubstract &&
+        e.y - e.size / 2 < playerYPlus && //- e.size / 2
+        e.x + e.size / 2 > playerXSubstract
+      ) {
+        this.bonusStatus = true;
+        this.bonus.splice(i, 1);
+      }
+    });
 
-      this.bonus = this.bonus.filter(
-        e =>
-          playerXPlus < e.x - e.size / 2 &&
-          playerYSubstract > e.y + e.size / 2 &&
-          playerYPlus < e.y - e.size / 2 &&
-          playerXSubstract > e.x - e.size / 2
-      );
-    }
+    // if (
+    //   this.bonus.some(
+    //     e =>
+    //       e.x < playerXPlus && //- e.size / 2
+    //       e.y + e.size / 2 > playerYSubstract &&
+    //       e.y < playerYPlus && //- e.size / 2
+    //       e.x + e.size / 2 > playerXSubstract
+    //   )
+    // ) {
+    //   this.bonusStatus = true;
+    // console.log(this.bonus, this.player);
+    // this.bonus = this.bonus.filter(
+    //   e =>
+    //     playerXPlus < e.x - e.size / 2 &&
+    //     playerYSubstract > e.y + e.size / 2 &&
+    //     playerYPlus > e.y - e.size / 2 &&
+    //     playerXSubstract > e.x + e.size / 2
+    // );
 
     if (playerYPlus > this.base.y - this.base.size / 2) {
       this.over = true;
