@@ -60,6 +60,15 @@ body {
     height: 100%;
     width: 100%;
   }
+
+  .game-section {
+    position: relative;
+  }
+
+  #pause-button,
+  #sound-button {
+    position: absolute;
+  }
 }
 
 p {

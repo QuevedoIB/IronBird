@@ -89,7 +89,7 @@ class Game {
       if (
         e.x < playerXPlus && //- e.size / 2
         e.y + e.size / 2 > playerYSubstract &&
-        e.y - e.size / 2 < playerYPlus && //- e.size / 2
+        e.y < playerYPlus && //- e.size / 2
         e.x + e.size / 2 > playerXSubstract
       ) {
         this.bonusStatus = true;
