@@ -43,12 +43,12 @@ body {
   }
   #night-background {
     z-index: -1;
-    width: 100%;
+    object-fit: cover;
   }
   #day-background {
     opacity: 1;
     z-index: -1;
-    width: 100%;
+    object-fit: cover;
   }
 
   body {
