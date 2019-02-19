@@ -6,8 +6,6 @@ const main = () => {
   let skinPlayer = "blue-bird-skin";
   let bonusSkin = "coffee-cup-skin";
   const owned = [];
-  let spacebarHolder = false;
-  let musicHolder = true;
   let pauseHolder = true;
   let pauseButtonPressed = false;
 
@@ -118,7 +116,6 @@ const main = () => {
     `);
 
     pauseHolder = true;
-    spacebarHolder = false;
 
     const graveyardName = document.getElementById("player-dead-name");
     graveyardName.innerHTML = `${nameHolder}`;
@@ -168,7 +165,8 @@ const main = () => {
     </section>
     `);
 
-    spacebarHolder = false;
+    let spacebarHolder = false;
+    let musicHolder = true;
 
     const soundButton = document.getElementById("sound-button");
     const audioGame = document.getElementById("play-audio");
@@ -179,6 +177,7 @@ const main = () => {
       if (musicHolder === true) {
         musicHolder = false;
         audioGame.pause();
+        audioGame.currentTime = 0;
       } else {
         audioGame.play();
         musicHolder = true;
@@ -217,6 +216,10 @@ const main = () => {
     const section = document.querySelector("section");
 
     const canvasElement = document.querySelector("canvas");
+
+    canvasElement.style.maxHeight = document.querySelector("section").style.maxHeight;
+    canvasElement.style.maxWidth = document.querySelector("section").style.maxWidth;
+
     const width = document.querySelector(".game-section").offsetWidth;
     const height = document.querySelector(".game-section").offsetHeight;
 
@@ -303,9 +306,8 @@ const main = () => {
         pauseHolder = true;
         pauseButtonPressed = true;
       }
-      console.log(startGame.holdPause);
+
       removePauseHolder();
-      console.log(startGame.holdPause);
     };
 
     const removePauseHolder = () => {
@@ -347,7 +349,6 @@ const main = () => {
     window.addEventListener("keydown", function(e) {
       const key = e.keyCode;
       if (key === 32) {
-        console.log(spacebarHolder);
         if (spacebarHolder === false) {
           setPlayerDirection();
           spacebarHolder = true;
