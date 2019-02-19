@@ -171,6 +171,8 @@ const main = () => {
 
     const soundButton = document.getElementById("sound-button");
     const audioGame = document.getElementById("play-audio");
+    audioGame.currentTime = 0;
+
     const startText = document.getElementById("click-to-start");
     const pauseButton = document.getElementById("pause-button");
 
@@ -178,7 +180,7 @@ const main = () => {
       if (musicHolder === true) {
         musicHolder = false;
         audioGame.pause();
-        audioGame.currentTime = 0;
+        // audioGame.currentTime = 0;
       } else {
         audioGame.play();
         musicHolder = true;

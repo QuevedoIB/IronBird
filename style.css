@@ -188,6 +188,7 @@ h4 {
 
 .pause-title {
   font-family: Nokia;
+  line-height: 1.5;
 }
 
 .hide {
@@ -211,10 +212,13 @@ h4 {
 
 #name-text {
   height: 30px;
+  width: 200px;
   margin-bottom: 20px;
   box-sizing: border-box;
   border: 2px dotted #353934;
   background-color: rgb(152, 217, 233);
+  font-family: Pixelade;
+  font-size: 20px;
 }
 
 #name-text:focus {
