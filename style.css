@@ -54,6 +54,7 @@ body {
   body {
     height: 512px;
     width: 288px;
+    margin-left: 175%;
   }
 
   canvas {
@@ -151,7 +152,7 @@ button {
 
 #timer {
   font-family: Nokia;
-  position: fixed;
+  position: absolute;
   top: 10px;
   left: 10px;
 }
