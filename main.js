@@ -444,9 +444,7 @@ const main = () => {
               </div>
             </div></li>
           </ul>
-          <div class="back-menu">
             <img id="back-to-main" src="./sprites/bigMenuButton.png" />
-          </div>
       </section>
     `);
 
