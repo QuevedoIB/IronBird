@@ -18,7 +18,7 @@ const main = () => {
   const buildSplash = () => {
     buildDom(`
     <section class="container splash-section">
-      <audio autoplay loop  id="playAudio">
+      <audio loop  id="playAudio">
         <source src="music-project-1/The best 8-bit music top 100 19 Mega Man 3  NES -- Title.mp3">
       </audio>
       <article class="container buttons-start">
@@ -46,6 +46,20 @@ const main = () => {
       </article>
     </section>
     `);
+
+    const musicElement = document.querySelector("audio");
+
+    const playMusic = () => {
+      let isPlaying =
+        musicElement.currentTime > 0 && !musicElement.paused && !musicElement.ended && musicElement.readyState > 2;
+
+      if (!isPlaying) {
+        musicElement.play();
+      }
+    };
+
+    const splashSection = document.querySelector("section");
+    splashSection.addEventListener("mouseover", playMusic);
 
     const shopButton = document.getElementById("shop-button");
     shopButton.addEventListener("click", buildShopScreen);
