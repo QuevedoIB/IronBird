@@ -102,7 +102,7 @@ const main = () => {
     buildDom(`
     <section class="game-over-section container>
       <audio autoplay loop>
-        <source src="music-project-1/Elevator Music.mp3">
+        <source src="music-project-1/Game Over Final Fantasy-[AudioTrimmer.com].mp3">
       </audio>
       <div class="container">
         <h1 class="title">You Died</h1>
@@ -117,7 +117,7 @@ const main = () => {
     `);
 
     const audioEndGame = new Audio();
-    audioEndGame.src = "music-project-1/Elevator Music.mp3";
+    audioEndGame.src = "music-project-1/Game Over Final Fantasy-[AudioTrimmer.com].mp3";
 
     audioEndGame.play();
 
