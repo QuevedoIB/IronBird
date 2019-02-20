@@ -5,7 +5,7 @@ class Base {
     this.context = canvas.getContext("2d");
     this.size = this.canvas.width;
     this.x = this.canvas.width / 2;
-    this.y = this.canvas.height + 50;
+    this.y = this.canvas.height * 1.088;
     this.src = "./sprites/base.png";
   }
 

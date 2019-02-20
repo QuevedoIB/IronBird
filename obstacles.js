@@ -8,7 +8,7 @@ class Obstacle {
     this.y;
     this.direction = 4;
     this.spaceBetween = 200;
-    this.randomNumber = Math.floor(Math.random() * (this.canvas.height - 288));
+    this.randomNumber = Math.floor(Math.random() * (this.canvas.height / 2));
     this.srcBot;
     this.srcTop;
     this.night = night;

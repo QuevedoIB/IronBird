@@ -21,7 +21,7 @@ class Game {
     this.player = new Player(this.canvas, this.playerSkin);
     this.player.initialFrame();
     this.base = new Base(this.canvas);
-
+    console.log(this.canvas.height);
     const generate = () => {
       if (!this.pause) {
         const random = Math.floor(Math.random() * 2);
@@ -29,9 +29,9 @@ class Game {
         this.obstacles.push(new Obstacle(this.canvas, this.night));
 
         if (random === 0) {
-          this.bonus.push(new Bonus(this.canvas, 50, this.bonusSkin));
+          this.bonus.push(new Bonus(this.canvas, this.canvas.height / 11.36, this.bonusSkin));
         } else {
-          this.bonus.push(new Bonus(this.canvas, 300, this.bonusSkin));
+          this.bonus.push(new Bonus(this.canvas, this.canvas.height / 1.89, this.bonusSkin));
         }
       }
     };
