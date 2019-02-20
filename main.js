@@ -101,8 +101,8 @@ const main = () => {
   const buildGameOverScreen = () => {
     buildDom(`
     <section class="game-over-section container>
-      <audio autoplay loop  id="play-audio">
-        <source src="./music-project-1/Elevator Music.mp3" allow="autoplay">
+      <audio autoplay loop>
+        <source src="music-project-1/Elevator Music.mp3">
       </audio>
       <div class="container">
         <h1 class="title">You Died</h1>
@@ -116,7 +116,16 @@ const main = () => {
     </section>
     `);
 
+    const audioEndGame = new Audio();
+    audioEndGame.src = "music-project-1/Elevator Music.mp3";
+
+    audioEndGame.play();
+
     pauseHolder = true;
+
+    const stopMusic = () => {
+      audioEndGame.pause();
+    };
 
     const graveyardName = document.getElementById("player-dead-name");
     graveyardName.innerHTML = `${nameHolder}`;
@@ -129,9 +138,11 @@ const main = () => {
     scoreSquare.innerHTML = `Total score: ${scoreHolder} pts!`;
 
     const retryButton = document.getElementsByClassName("start-button");
+    retryButton[0].addEventListener("click", stopMusic);
     retryButton[0].addEventListener("click", buildGameScreen);
 
     const backButton = document.getElementById("back-to-main");
+    backButton.addEventListener("click", stopMusic);
     backButton.addEventListener("click", buildSplash);
 
     scoreHolder = 0;
