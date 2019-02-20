@@ -39,100 +39,23 @@ class Player {
   }
 
   frameUpdate(value) {
-    if (this.skin === "blue-bird-skin") {
-      if (value === "mid-to-top") {
+    switch (value) {
+      case "mid-to-top":
         this.frameCount = "top-to-mid";
-        return (this.src = "./sprites/blueupglasses.png");
-      } else if (value === "top-to-mid") {
+        this.src = `./sprites/skins/${this.skin}-top.png`;
+        break;
+      case "top-to-mid":
         this.frameCount = "mid-to-bot";
-        return (this.src = "./sprites/bluemidglasses.png");
-      } else if (value === "mid-to-bot") {
+        this.src = `./sprites/skins/${this.skin}.png`;
+        break;
+      case "mid-to-bot":
         this.frameCount = "bot-to-mid";
-        return (this.src = "./sprites/bluedownglasses.png");
-      } else if (value === "bot-to-mid") {
+        this.src = `./sprites/skins/${this.skin}-bot.png`;
+        break;
+      case "bot-to-mid":
         this.frameCount = "mid-to-top";
-        return (this.src = "./sprites/bluemidglasses.png");
-      }
-    }
-
-    if (this.skin === "red-bird-skin") {
-      if (value === "mid-to-top") {
-        this.frameCount = "top-to-mid";
-        return (this.src = "./sprites/redbird-upflap.png");
-      } else if (value === "top-to-mid") {
-        this.frameCount = "mid-to-bot";
-        return (this.src = "./sprites/redbird-midflap.png");
-      } else if (value === "mid-to-bot") {
-        this.frameCount = "bot-to-mid";
-        return (this.src = "./sprites/redbird-downflap.png");
-      } else if (value === "bot-to-mid") {
-        this.frameCount = "mid-to-top";
-        return (this.src = "./sprites/redbird-midflap.png");
-      }
-    }
-
-    if (this.skin === "yellow-bird-skin") {
-      if (value === "mid-to-top") {
-        this.frameCount = "top-to-mid";
-        return (this.src = "./sprites/yellowbird-upflap.png");
-      } else if (value === "top-to-mid") {
-        this.frameCount = "mid-to-bot";
-        return (this.src = "./sprites/yellowbird-midflap.png");
-      } else if (value === "mid-to-bot") {
-        this.frameCount = "bot-to-mid";
-        return (this.src = "./sprites/yellowbird-downflap.png");
-      } else if (value === "bot-to-mid") {
-        this.frameCount = "mid-to-top";
-        return (this.src = "./sprites/yellowbird-midflap.png");
-      }
-    }
-
-    if (this.skin === "robot-skin") {
-      if (value === "mid-to-top") {
-        this.frameCount = "top-to-mid";
-        return (this.src = "./sprites/robot-up-skin.png");
-      } else if (value === "top-to-mid") {
-        this.frameCount = "mid-to-bot";
-        return (this.src = "./sprites/robot-mid-skin.png");
-      } else if (value === "mid-to-bot") {
-        this.frameCount = "bot-to-mid";
-        return (this.src = "./sprites/robot-down-skin.png");
-      } else if (value === "bot-to-mid") {
-        this.frameCount = "mid-to-top";
-        return (this.src = "./sprites/robot-mid-skin.png");
-      }
-    }
-
-    if (this.skin === "dog-skin") {
-      if (value === "mid-to-top") {
-        this.frameCount = "top-to-mid";
-        return (this.src = "./sprites/dog-skin-up.png");
-      } else if (value === "top-to-mid") {
-        this.frameCount = "mid-to-bot";
-        return (this.src = "./sprites/dog-skin-mid.png");
-      } else if (value === "mid-to-bot") {
-        this.frameCount = "bot-to-mid";
-        return (this.src = "./sprites/dog-skin-bot.png");
-      } else if (value === "bot-to-mid") {
-        this.frameCount = "mid-to-top";
-        return (this.src = "./sprites/dog-skin-mid.png");
-      }
-    }
-
-    if (this.skin === "roto2-skin") {
-      if (value === "mid-to-top") {
-        this.frameCount = "top-to-mid";
-        return (this.src = "./sprites/roto2-skin-top.png");
-      } else if (value === "top-to-mid") {
-        this.frameCount = "mid-to-bot";
-        return (this.src = "./sprites/roto2-skin-mid.png");
-      } else if (value === "mid-to-bot") {
-        this.frameCount = "bot-to-mid";
-        return (this.src = "./sprites/roto2-skin-bot.png");
-      } else if (value === "bot-to-mid") {
-        this.frameCount = "mid-to-top";
-        return (this.src = "./sprites/roto2-skin-mid.png");
-      }
+        this.src = `./sprites/skins/${this.skin}.png`;
+        break;
     }
   }
 
@@ -143,18 +66,6 @@ class Player {
   }
 
   initialFrame() {
-    if (this.skin === "blue-bird-skin") {
-      this.src = "./sprites/bluemidglasses.png";
-    } else if (this.skin === "red-bird-skin") {
-      this.src = "./sprites/redbird-midflap.png";
-    } else if (this.skin === "yellow-bird-skin") {
-      this.src = "./sprites/yellowbird-midflap.png";
-    } else if (this.skin === "robot-skin") {
-      this.src = "./sprites/robot-mid-skin.png";
-    } else if (this.skin === "dog-skin") {
-      this.src = "./sprites/dog-skin-mid.png";
-    } else if (this.skin === "roto2-skin") {
-      this.src = "./sprites/roto2-skin-mid.png";
-    }
+    this.src = `./sprites/skins/${this.skin}.png`;
   }
 }

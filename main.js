@@ -3,8 +3,8 @@ const main = () => {
   let nameHolder;
   let scoreHolder;
   let bonusCollected = 0;
-  let skinPlayer = "blue-bird-skin";
-  let bonusSkin = "coffee-cup-skin";
+  let skinPlayer = "bluebird-skin";
+  let bonusSkin = "coffee-skin-bonus";
   const owned = [];
   let pauseHolder = true;
   let pauseButtonPressed = false;
@@ -412,7 +412,7 @@ const main = () => {
         <ul class="container-shop shop">
             <li><div class="container group">
               <img src="./sprites/shop-red-bird.png" />
-              <p class="price-word">Price: <span id="red-bird-skin" class="price-text">500</span></p>
+              <p class="price-word">Price: <span id="redbird-skin" class="price-text">5</span></p>
               <div class="row-container">
                 <img id="red-bird-button" class="purchase-button" src="./sprites/buttonpurchase.png" />
                 <img id="red-bird-equip" class="equip-button" src="./sprites/equipbutton.png" />
@@ -420,41 +420,49 @@ const main = () => {
             </div></li>
             <li><div class="container group">
               <img src="./sprites/shop-yellow-bird.png" />
-              <p class="price-word">Price: <span id="yellow-bird-skin" class="price-text">500</span></p>
+              <p class="price-word">Price: <span id="yellowbird-skin" class="price-text">5</span></p>
               <div class="row-container">
                 <img id="yellow-bird-button" class="purchase-button" src="./sprites/buttonpurchase.png" />
                 <img id="yellow-bird-equip" class="equip-button" src="./sprites/equipbutton.png" />
               </div>
             </div></li>
             <li><div class="container group">
-              <img src="./sprites/robot-up-skin.png" />
-              <p class="price-word">Price: <span id="robot-skin" class="price-text">500</span></p>
+              <img src="./sprites/skins/robot-skin-top.png" />
+              <p class="price-word">Price: <span id="robot-skin" class="price-text">5</span></p>
               <div class="row-container">
                 <img id="robot-skin-button" class="purchase-button" src="./sprites/buttonpurchase.png" />
                 <img id="robot-skin-equip" class="equip-button" src="./sprites/equipbutton.png" />
               </div>
             </div></li>
             <li><div class="container group">
-              <img src="./sprites/dog-skin-up.png" />
+              <img src="./sprites/skins/dog-skin-top.png" />
               <p class="price-word">Price: <span id="dog-skin" class="price-text">5</span></p>
               <div class="row-container">
                 <img id="dog-skin-button" class="purchase-button" src="./sprites/buttonpurchase.png" />
                 <img id="dog-skin-equip" class="equip-button" src="./sprites/equipbutton.png" />
               </div></li>
             <li><div class="container group">
-              <img src="./sprites/bin-skin-bonus.png" />
-              <p class="price-word">Price: <span id="bin-skin" class="price-text">5</span></p>
+              <img src="./sprites/skins/bin-skin-bonus.png" />
+              <p class="price-word">Price: <span id="bin-skin-bonus" class="price-text">5</span></p>
               <div class="row-container">
                 <img id="bin-skin-button" class="purchase-button" src="./sprites/buttonpurchase.png" />
                 <img id="bin-skin-equip" class="equip-button" src="./sprites/equipbutton.png" />
               </div>
             </div></li>
             <li><div class="container group">
-              <img src="./sprites/roto2-skin-bot.png" />
-              <p class="price-word">Price: <span id="roto2-skin" class="price-text">500</span></p>
+              <img src="./sprites/skins/roto2-skin-bot.png" />
+              <p class="price-word">Price: <span id="roto2-skin" class="price-text">5</span></p>
               <div class="row-container">
                 <img id="roto2-skin-button" class="purchase-button" src="./sprites/buttonpurchase.png" />
                 <img id="roto2-skin-equip" class="equip-button" src="./sprites/equipbutton.png" />
+              </div>
+            </div></li>
+            <li><div class="container group">
+              <img src="./sprites/skins/ghost-skin.png" />
+              <p class="price-word">Price: <span id="ghost-skin" class="price-text">5</span></p>
+              <div class="row-container">
+                <img id="ghost-skin-button" class="purchase-button" src="./sprites/buttonpurchase.png" />
+                <img id="ghost-skin-equip" class="equip-button" src="./sprites/equipbutton.png" />
               </div>
             </div></li>
           </ul>
@@ -492,7 +500,7 @@ const main = () => {
       if (skinPlayer !== skinId) {
         skinPlayer = skinId;
       } else {
-        skinPlayer = "blue-bird-skin";
+        skinPlayer = "bluebird-skin";
       }
     }
 
@@ -508,7 +516,7 @@ const main = () => {
       if (bonusSkin !== skinId) {
         bonusSkin = skinId;
       } else {
-        bonusSkin = "coffee-cup-skin";
+        bonusSkin = "coffee-skin-bonus";
       }
     }
 
@@ -534,14 +542,17 @@ const main = () => {
     const purchaseRoto2 = document.getElementById("roto2-skin-button");
     const equipRoto2 = document.getElementById("roto2-skin-equip");
 
+    const purchaseGhost = document.getElementById("ghost-skin-button");
+    const equipGhost = document.getElementById("ghost-skin-equip");
+
     const backButton = document.getElementById("back-to-main");
     backButton.addEventListener("click", buildSplash);
 
-    purchaseRed.addEventListener("click", getDomElementById("red-bird-skin"));
-    equipRed.addEventListener("click", checkOwned("red-bird-skin"));
+    purchaseRed.addEventListener("click", getDomElementById("redbird-skin"));
+    equipRed.addEventListener("click", checkOwned("redbird-skin"));
 
-    purchaseYellow.addEventListener("click", getDomElementById("yellow-bird-skin"));
-    equipYellow.addEventListener("click", checkOwned("yellow-bird-skin"));
+    purchaseYellow.addEventListener("click", getDomElementById("yellowbird-skin"));
+    equipYellow.addEventListener("click", checkOwned("yellowbird-skin"));
 
     purchaseRobot.addEventListener("click", getDomElementById("robot-skin"));
     equipRobot.addEventListener("click", checkOwned("robot-skin"));
@@ -549,11 +560,14 @@ const main = () => {
     purchaseDog.addEventListener("click", getDomElementById("dog-skin"));
     equipDog.addEventListener("click", checkOwned("dog-skin"));
 
-    purchaseBin.addEventListener("click", getDomElementById("bin-skin"));
-    equipBin.addEventListener("click", checkOwnedBonus("bin-skin"));
+    purchaseBin.addEventListener("click", getDomElementById("bin-skin-bonus"));
+    equipBin.addEventListener("click", checkOwnedBonus("bin-skin-bonus"));
 
     purchaseRoto2.addEventListener("click", getDomElementById("roto2-skin"));
     equipRoto2.addEventListener("click", checkOwned("roto2-skin"));
+
+    purchaseGhost.addEventListener("click", getDomElementById("ghost-skin"));
+    equipGhost.addEventListener("click", checkOwned("ghost-skin"));
   };
 
   buildSplash();

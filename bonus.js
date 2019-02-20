@@ -7,7 +7,7 @@ class Bonus {
     this.y = y;
     this.size = 50;
     this.direction = 4;
-    this.src = bonusSkin;
+    this.src = `./sprites/skins/${bonusSkin}.png`;
   }
 
   update() {
@@ -15,12 +15,6 @@ class Bonus {
   }
 
   draw() {
-    if (this.src === "coffee-cup-skin") {
-      this.src = "./sprites/coffeSpritebig.png";
-    } else if (this.src === "bin-skin") {
-      this.src = "./sprites/bin-skin-bonus.png";
-    }
-
     const img = new Image();
     img.onload = function() {};
     img.src = this.src;

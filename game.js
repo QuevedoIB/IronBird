@@ -97,25 +97,6 @@ class Game {
       }
     });
 
-    // if (
-    //   this.bonus.some(
-    //     e =>
-    //       e.x < playerXPlus && //- e.size / 2
-    //       e.y + e.size / 2 > playerYSubstract &&
-    //       e.y < playerYPlus && //- e.size / 2
-    //       e.x + e.size / 2 > playerXSubstract
-    //   )
-    // ) {
-    //   this.bonusStatus = true;
-    // console.log(this.bonus, this.player);
-    // this.bonus = this.bonus.filter(
-    //   e =>
-    //     playerXPlus < e.x - e.size / 2 &&
-    //     playerYSubstract > e.y + e.size / 2 &&
-    //     playerYPlus > e.y - e.size / 2 &&
-    //     playerXSubstract > e.x + e.size / 2
-    // );
-
     if (playerYPlus > this.base.y - this.base.size / 2) {
       this.over = true;
       this.onGameOver();
