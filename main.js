@@ -19,7 +19,7 @@ const main = () => {
     buildDom(`
     <section class="container splash-section">
       <audio loop  id="playAudio">
-        <source src="music-project-1/The best 8-bit music top 100 19 Mega Man 3  NES -- Title.mp3">
+        <source src="music-project-1/The best 8-bit music top 100 19 Mega Man 3  NES -- Title.mp3"/>
       </audio>
       <article class="container buttons-start">
         <input type="text" id="name-text" placeholder=" Insert Name">
@@ -116,7 +116,7 @@ const main = () => {
     buildDom(`
     <section class="game-over-section container>
       <audio autoplay loop>
-        <source src="music-project-1/Game Over Final Fantasy-[AudioTrimmer.com].mp3">
+        <source src="music-project-1/Game Over Final Fantasy-[AudioTrimmer.com].mp3"/>
       </audio>
       <div class="container">
         <h1 class="title">You Died</h1>
@@ -144,9 +144,10 @@ const main = () => {
     const graveyardName = document.getElementById("player-dead-name");
     graveyardName.innerHTML = `${nameHolder}`;
 
-    if (localStorage[nameHolder] < scoreHolder) {
+    if (parseInt(localStorage.getItem(nameHolder)) < scoreHolder) {
       localStorage.setItem(nameHolder, scoreHolder);
     }
+    console.log(localStorage);
 
     const scoreSquare = document.getElementsByClassName("score-text")[0];
     scoreSquare.innerHTML = `Total score: ${scoreHolder} pts!`;
@@ -176,7 +177,7 @@ const main = () => {
       <img id="pause-button" src="./sprites/pause-button.png"/>
       <img id="sound-button" src="./sprites/sound.png"/>
       <audio autoplay loop  id="play-audio">
-        <source src="music-project-1/Gourmet Race 8-BIT - Kirby.mp3" allow="autoplay">
+        <source src="music-project-1/Gourmet Race 8-BIT - Kirby.mp3" allow="autoplay"/>
       </audio>
       <img src="./sprites/background-night.png" id="night-background">
       <img src="./sprites/background-day.png" id="day-background"> 
@@ -212,6 +213,19 @@ const main = () => {
       }
       music();
     };
+
+    // const stopMusic = () => {
+    //   if (musicHolder === true) {
+    //     musicHolder = false;
+    //     audioGame.pause();
+    //     document.removeChild(audioGame);
+    //   } else {
+    //     audioGame = new Audio();
+    //     audioGame.src = "./music-project-1/Gourmet Race 8-BIT - Kirby.mp3";
+    //     musicHolder = true;
+    //   }
+    //   music();
+    // };
 
     const music = () => {
       if (musicHolder) {
@@ -403,7 +417,7 @@ const main = () => {
     buildDom(`
       <section id="shop-section" class="container">
         <audio autoplay loop  id="playAudio">
-          <source src="music-project-1/Elevator Music.mp3" allow="autoplay">
+          <source src="music-project-1/Elevator Music.mp3" allow="autoplay"/>
         </audio> 
         <div class="container-row">  
           <h1 class="title">Shop</h1>

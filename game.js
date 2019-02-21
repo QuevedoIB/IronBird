@@ -21,7 +21,6 @@ class Game {
     this.player = new Player(this.canvas, this.playerSkin);
     this.player.initialFrame();
     this.base = new Base(this.canvas);
-    console.log(this.canvas.height);
     const generate = () => {
       if (!this.pause) {
         const random = Math.floor(Math.random() * 2);
