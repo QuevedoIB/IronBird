@@ -33,7 +33,7 @@ const main = () => {
         <h4 class="instructions-title">Instructions</h4>
         <div class="commands container">
           <p>Left click/spacebar to JUMP</p>
-          <p>P to pause/S to mute game</p>
+          <p>P to pause game</p>
         </div>
         <ul class="instruction-list container">
           <li> Drink Coffee </li>
