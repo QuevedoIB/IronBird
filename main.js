@@ -8,6 +8,7 @@ const main = () => {
   const owned = [];
   let pauseHolder = true;
   let pauseButtonPressed = false;
+  let musicHolder = true;
 
   const buildDom = html => {
     const body = document.querySelector("body");
@@ -193,7 +194,6 @@ const main = () => {
     `);
 
     let spacebarHolder = false;
-    let musicHolder = true;
 
     const soundButton = document.getElementById("sound-button");
     const audioGame = document.getElementById("play-audio");
@@ -206,26 +206,13 @@ const main = () => {
       if (musicHolder === true) {
         musicHolder = false;
         audioGame.pause();
-        // audioGame.currentTime = 0;
+        audioGame.currentTime = 0;
       } else {
         audioGame.play();
         musicHolder = true;
       }
       music();
     };
-
-    // const stopMusic = () => {
-    //   if (musicHolder === true) {
-    //     musicHolder = false;
-    //     audioGame.pause();
-    //     document.removeChild(audioGame);
-    //   } else {
-    //     audioGame = new Audio();
-    //     audioGame.src = "./music-project-1/Gourmet Race 8-BIT - Kirby.mp3";
-    //     musicHolder = true;
-    //   }
-    //   music();
-    // };
 
     const music = () => {
       if (musicHolder) {
@@ -234,6 +221,11 @@ const main = () => {
         soundButton.src = "./sprites/no-sound.png";
       }
     };
+
+    if (!musicHolder) {
+      audioGame.pause();
+      music();
+    }
 
     soundButton.addEventListener("click", stopMusic);
 
@@ -378,18 +370,6 @@ const main = () => {
           pauseHolder = true;
         }
       }
-    });
-
-    window.addEventListener("keyup", function(e) {
-      const key = e.keyCode;
-      if (key === 80) {
-        startGame.holdPause = false;
-        score.holdPause = false;
-      }
-    });
-
-    window.addEventListener("keydown", function(e) {
-      const key = e.keyCode;
       if (key === 32) {
         if (spacebarHolder === false) {
           setPlayerDirection();
@@ -400,15 +380,12 @@ const main = () => {
 
     window.addEventListener("keyup", function(e) {
       const key = e.keyCode;
+      if (key === 80) {
+        startGame.holdPause = false;
+        score.holdPause = false;
+      }
       if (key === 32) {
         spacebarHolder = false;
-      }
-    });
-
-    window.addEventListener("keydown", function(e) {
-      const key = e.keyCode;
-      if (key === 83) {
-        stopMusic();
       }
     });
   };
